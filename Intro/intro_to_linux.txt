@@ -1,0 +1,219 @@
+Introduction to Linux
+
+Topics You Will Learn:
+- What is Linux
+- History of Linux & Open Source
+- Linux Distributions (Distros)
+- Linux File System Structure
+- Basic Linux Commands
+- User & Permission Management
+- Processes & Services
+- Package Management
+- Shell & Scripting
+- Networking Commands
+- System Monitoring
+- File Handling & Redirection
+- Disk Management
+- SSH & Remote Access
+- System Logs
+- Cron Jobs (Task Scheduling)
+
+------------------------------------------------------------
+
+What is Linux?
+Linux is an open-source, Unix-based operating system used
+for servers, desktops, mobile devices, cloud systems,
+supercomputers, and embedded devices.
+
+It is free, fast, secure, and highly customizable.
+
+------------------------------------------------------------
+
+Why Linux is Important?
+- Used heavily in servers and cloud
+- Most DevOps tools run on Linux
+- Foundation for containers (Docker uses Linux kernel)
+- Highly stable and secure
+- Open-source and free
+- Supports automation & scripting
+
+------------------------------------------------------------
+
+Popular Linux Distributions (Distros):
+- Ubuntu
+- Debian
+- CentOS/RedHat
+- Fedora
+- Arch Linux
+- Kali Linux
+- Linux Mint
+
+Server-focused Distros:
+- Ubuntu Server
+- RedHat Enterprise Linux (RHEL)
+- CentOS Stream
+- Amazon Linux
+
+------------------------------------------------------------
+
+Linux File System Structure:
+/ (root) – Base of everything  
+/bin – Essential system binaries  
+/sbin – System administration binaries  
+/etc – Configuration files  
+/home – User home directories  
+/var – Logs, cache, variable data  
+/usr – Applications, libraries  
+/tmp – Temporary files  
+/boot – Bootloader files  
+/lib – System libraries  
+/dev – Device files  
+
+------------------------------------------------------------
+
+Basic Linux Commands:
+- pwd (Print working directory)
+- ls (List files)
+- cd (Change directory)
+- mkdir/rmdir (Create/remove directories)
+- touch (Create files)
+- rm (Remove files)
+- cp/mv (Copy/move files)
+- cat/nano/vim (View/edit files)
+
+------------------------------------------------------------
+
+User & Permission Management:
+Commands:
+- useradd / userdel
+- passwd
+- chmod (Change file permissions)
+- chown (Change file owner)
+- groups
+
+Permission Types:
+- Read (r)
+- Write (w)
+- Execute (x)
+
+------------------------------------------------------------
+
+Processes & Services:
+- ps (List processes)
+- top / htop (System monitor)
+- kill / killall (Terminate processes)
+- systemctl (Control services)
+- service (Start/stop services)
+
+------------------------------------------------------------
+
+Package Management:
+Debian-based (Ubuntu):
+- apt, apt-get
+
+RedHat-based (CentOS/RHEL):
+- yum, dnf
+
+Others:
+- snap
+- flatpak
+
+------------------------------------------------------------
+
+Shell & Scripting:
+- Bash (most common shell)
+- Zsh, Fish
+Shell scripts end with `.sh`
+
+Basic structure:
+#!/bin/bash
+echo "Hello World"
+
+------------------------------------------------------------
+
+Networking Commands:
+- ifconfig / ip addr
+- ping
+- curl / wget
+- nslookup / dig
+- netstat / ss
+- traceroute
+- hostname
+- scp (secure copy)
+
+------------------------------------------------------------
+
+System Monitoring:
+- top / htop
+- df (disk usage)
+- du (directory usage)
+- free (memory)
+- uptime
+- vmstat
+- iostat
+
+------------------------------------------------------------
+
+File Handling & Redirection:
+Redirection:
+>  (overwrite output)
+>> (append output)
+<  (input file)
+|  (pipe output to another command)
+
+Examples:
+ls -l > output.txt  
+cat file.txt | grep "error"
+
+------------------------------------------------------------
+
+Disk Management:
+- lsblk (list disks)
+- fdisk (disk partitioning)
+- mount / umount
+- df -h (disk usage)
+- parted
+
+------------------------------------------------------------
+
+SSH & Remote Access:
+- ssh user@server
+- scp source destination
+- ssh-keygen (generate SSH keys)
+
+------------------------------------------------------------
+
+System Logs:
+Logs are stored in:
+/var/log/
+
+Common logs:
+- syslog
+- auth.log
+- boot.log
+
+Command:
+- tail -f /var/log/syslog
+
+------------------------------------------------------------
+
+Cron Jobs (Task Scheduling):
+Edit cron jobs:
+crontab -e
+
+Example:
+0 2 * * * backup.sh   (runs daily at 2 AM)
+
+------------------------------------------------------------
+
+What You Will Be Able to Do After Learning Linux:
+- Use Linux confidently for development and DevOps
+- Manage files, users, and permissions
+- Install packages and manage services
+- Work with networking tools
+- Write and automate using shell scripts
+- Monitor and troubleshoot Linux systems
+- Connect to remote servers using SSH
+- Manage logs and scheduled tasks
+
+------------------------------------------------------------

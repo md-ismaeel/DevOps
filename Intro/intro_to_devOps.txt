@@ -1,0 +1,170 @@
+Introduction to DevOps
+
+Topics You Will Learn:
+- DevOps Main Objectives
+- DevOps and the Software Development Life Cycle
+- Continuous Integration & Continuous Deployment (CI/CD)
+- Containers and Virtualization
+- Cloud Providers
+- Scripting
+- Infrastructure as Code (IaC)
+- Configuration Management Tools
+- Monitoring & Logging
+- DevSecOps (Security in DevOps)
+- Deployment Strategies
+- DevOps Tools Overview
+
+------------------------------------------------------------
+
+What is DevOps?
+DevOps is a combination of Development (Dev) and Operations (Ops).
+It is a culture, practice, and set of tools that increases an
+organization’s ability to deliver applications and services at a
+high speed with improved quality, reliability, and collaboration.
+
+------------------------------------------------------------
+
+Dev vs Ops:
+Developer:
+    - Writes the code
+    - Fixes bugs
+    - Adds new features
+
+Operations:
+    - Hosts the application
+    - Deploys new releases
+    - Monitors system health
+    - Maintains servers and infrastructure
+    - Scales the application
+
+DevOps bridges the gap between both teams.
+
+------------------------------------------------------------
+
+DevOps Objectives:
+- Maintain the Code
+- Deploy the Code
+- Monitor the Code
+- Test the Code
+- Automate the Pipeline
+- Scale the Application
+- Improve Collaboration between Dev and Ops
+
+------------------------------------------------------------
+
+DevOps in the Software Development Life Cycle:
+1. Plan
+2. Develop
+3. Build
+4. Test
+5. Release
+6. Deploy
+7. Operate
+8. Monitor
+(Feedback goes back to planning)
+
+------------------------------------------------------------
+
+Continuous Integration (CI):
+- Developers push code frequently
+- Automated build & test triggers
+- Ensures code reliability and quality
+
+Continuous Deployment/Delivery (CD):
+- Automatically deploys the tested code
+- Fast and safe releases
+- Reduces manual errors
+
+------------------------------------------------------------
+
+Containers & Virtual Development:
+- Docker for containerization
+- Kubernetes for container orchestration
+- Lightweight, portable environments
+
+------------------------------------------------------------
+
+Cloud Providers:
+- Amazon Web Services (AWS)
+- Microsoft Azure
+- Google Cloud Platform (GCP)
+- DigitalOcean, Linode, IBM Cloud
+
+------------------------------------------------------------
+
+Scripting:
+- Bash/Shell
+- Python
+- PowerShell
+Used for automation of repetitive tasks.
+
+------------------------------------------------------------
+
+Infrastructure as Code (IaC):
+- Manage infrastructure using code
+- Version-controlled environments
+Tools:
+- Terraform
+- AWS CloudFormation
+- Pulumi
+
+------------------------------------------------------------
+
+Configuration Management Tools:
+- Ansible
+- Puppet
+- Chef
+- SaltStack
+
+------------------------------------------------------------
+
+Monitoring & Logging:
+- Prometheus
+- Grafana
+- ELK/EFK Stack (Elasticsearch, Logstash/Fluentd, Kibana)
+- Datadog, New Relic
+
+------------------------------------------------------------
+
+Deployment Strategies:
+- Blue-Green Deployment
+- Canary Deployment
+- Rolling Updates
+- Feature Flags
+
+------------------------------------------------------------
+
+Security in DevOps (DevSecOps):
+- Code scanning tools (SonarQube, Snyk)
+- Secret management
+- Container image scanning
+- Vulnerability assessment
+- Shift-left security (test earlier)
+
+------------------------------------------------------------
+
+Popular DevOps Tools:
+- Git & GitHub/GitLab/Bitbucket
+- Jenkins
+- GitHub Actions
+- GitLab CI/CD
+- Docker
+- Kubernetes
+- Terraform
+- Ansible
+- Prometheus
+- Grafana
+
+------------------------------------------------------------
+
+What You Will Be Able to Do After Learning DevOps:
+- Build & automate CI/CD pipelines
+- Work with containers and Kubernetes
+- Deploy applications on cloud platforms
+- Manage servers using IaC tools like Terraform
+- Monitor and secure applications
+- Handle production deployments safely
+- Improve system reliability and uptime
+- Automate repetitive processes end-to-end
+
+------------------------------------------------------------

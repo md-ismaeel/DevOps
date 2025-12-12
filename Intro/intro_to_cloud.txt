@@ -1,0 +1,188 @@
+Introduction to Cloud Computing
+
+Topics You Will Learn:
+- What is Cloud Computing
+- Types of Cloud Services (IaaS, PaaS, SaaS)
+- Types of Cloud Deployment Models
+- Cloud Providers Overview
+- Virtualization in Cloud
+- Cloud Storage
+- Cloud Networking
+- Cloud Security Basics
+- Compute Services (VMs, Containers, Serverless)
+- Identity & Access Management (IAM)
+- Cloud Billing & Pricing Models
+- Monitoring & Logging in Cloud
+- High Availability & Scalability
+- Disaster Recovery & Backup
+- Infrastructure as Code (IaC) in Cloud
+
+------------------------------------------------------------
+
+What is Cloud Computing?
+Cloud Computing is the delivery of computing services—
+such as servers, storage, networking, databases, software,
+and analytics—over the internet (“the cloud”) on a pay-as-you-go model.
+
+Instead of buying physical hardware, companies use cloud
+providers to host and run their applications.
+
+------------------------------------------------------------
+
+Why Cloud Computing?
+- No need to maintain physical servers
+- Pay only for what you use
+- Highly scalable and available
+- Fast deployment of applications
+- Access from anywhere
+- Reduced operational cost
+
+------------------------------------------------------------
+
+Service Models:
+1. IaaS – Infrastructure as a Service
+   - Provides virtual machines, storage, network
+   - Example: AWS EC2, Azure VM, GCP Compute Engine
+
+2. PaaS – Platform as a Service
+   - Provides runtime, managed platforms, databases
+   - Example: Heroku, AWS Elastic Beanstalk, Google App Engine
+
+3. SaaS – Software as a Service
+   - Ready-to-use applications
+   - Example: Gmail, Netflix, Salesforce
+
+------------------------------------------------------------
+
+Cloud Deployment Models:
+- Public Cloud (AWS, Azure, GCP)
+- Private Cloud (On-premises maintained by org)
+- Hybrid Cloud (Mix of public + private)
+- Multi-Cloud (Use more than one provider)
+
+------------------------------------------------------------
+
+Cloud Providers:
+- Amazon Web Services (AWS)
+- Microsoft Azure
+- Google Cloud Platform (GCP)
+- IBM Cloud
+- Oracle Cloud
+- DigitalOcean
+
+------------------------------------------------------------
+
+Virtualization in Cloud:
+Cloud works using virtualization.
+
+Types of virtualization:
+- Server Virtualization
+- Storage Virtualization
+- Network Virtualization
+
+Hypervisors:
+- Type 1: Bare metal hypervisors (VMware ESXi, Hyper-V)
+- Type 2: Hosted hypervisors (VirtualBox)
+
+------------------------------------------------------------
+
+Cloud Storage:
+- Object Storage (S3, Azure Blob, GCP Cloud Storage)
+- Block Storage (EBS, Persistent Disk)
+- File Storage (EFS, Azure Files)
+
+Use Cases:
+- Backups
+- Hosting static websites
+- Storing large datasets
+- Media files, logs, analytics
+
+------------------------------------------------------------
+
+Cloud Networking:
+- VPC (Virtual Private Cloud)
+- Subnets (Public/Private)
+- Route Tables
+- Internet Gateways
+- Load Balancers
+- VPN & Direct Connect
+
+------------------------------------------------------------
+
+Cloud Security Basics:
+- IAM (Identity and Access Management)
+- MFA (Multi-factor authentication)
+- Role-based access control
+- Security Groups & Firewalls
+- Encryption (at-rest & in-transit)
+- Key Management (KMS)
+
+------------------------------------------------------------
+
+Compute Services:
+1. Virtual Machines (EC2, Azure VM, Compute Engine)
+2. Containers (ECS, EKS, GKE, AKS)
+3. Serverless (AWS Lambda, Azure Functions, Cloud Functions)
+
+------------------------------------------------------------
+
+Cloud Billing & Pricing Models:
+- Pay-as-you-go
+- Reserved Instances
+- Spot Instances
+- Savings Plans
+- Free Tier
+
+------------------------------------------------------------
+
+Monitoring & Logging:
+- CloudWatch (AWS)
+- Azure Monitor
+- GCP Operations Suite
+- Logging & Alerts
+- Metrics & Dashboards
+
+------------------------------------------------------------
+
+High Availability (HA) & Scalability:
+- Auto Scaling
+- Load Balancers
+- Multi-region deployment
+- Fault tolerance
+- Redundancy
+
+------------------------------------------------------------
+
+Disaster Recovery (DR):
+- Backup & Restore
+- Pilot Light
+- Warm Standby
+- Multi-site Active-Active
+
+------------------------------------------------------------
+
+Infrastructure as Code in Cloud:
+Tools:
+- Terraform
+- CloudFormation
+- Pulumi
+- Azure Bicep
+
+Benefits:
+- Version control for infra
+- Repeatable deployments
+- Easy rollback and updates
+
+------------------------------------------------------------
+
+What You Will Be Able to Do After Learning Cloud:
+- Deploy apps on AWS/Azure/GCP
+- Configure cloud networking & security
+- Create and manage virtual machines
+- Work with cloud storage services
+- Build scalable and highly available systems
+- Implement backups & disaster recovery
+- Understand pricing & optimize cloud cost
+- Automate cloud infrastructure using IaC
+
+------------------------------------------------------------
