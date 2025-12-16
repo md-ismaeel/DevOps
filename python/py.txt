@@ -1,0 +1,95 @@
+DATA TYPES
+
+1. String
+- Used to store text such as sentences, words, or characters
+- Example: "Hello", "Python"
+
+2. Integer
+- Used to store whole numbers
+- Example: 1, 2, 3, 4, 5
+
+3. Float
+- Used to store decimal numbers
+- Example: 1.1, 2.4, 3.7, 4.4, 5.5
+
+4. Boolean
+- Used to store True or False values
+- Example: True, False
+
+
+OBJECTS
+
+1. List
+- Ordered and changeable collection
+
+2. Dictionary
+- Stores data in key-value pairs
+
+3. Set
+- Unordered collection with unique values
+
+4. Tuple
+- Ordered and unchangeable collection
+
+OBJECTS WITH EXAMPLES
+
+1. List
+- Ordered and changeable
+- Allows duplicate values
+
+Example:
+numbers = [1, 2, 3, 4, 5]
+names = ["Ali", "Sara", "John"]
+
+2. Dictionary
+- Stores data in key-value pairs
+- Keys are unique
+
+Example:
+student = {
+    "name": "Ali",
+    "age": 20,
+    "course": "Python"
+}
+
+3. Set
+- Unordered collection
+- Does not allow duplicate values
+
+Example:
+unique_numbers = {1, 2, 3, 4}
+
+4. Tuple
+- Ordered but unchangeable (immutable)
+
+Example:
+coordinates = (10, 20)
+colors = ("red", "green", "blue")
+
+conditional operators
+    > greater than
+    < less than
+    >= greater than or equal to
+    <= less than or equal to
+    == equal to
+    != not equal to
+    \n new line
+
+common Python modules
+
+1. math     (for mathematical operations)
+2. random   (for generating random numbers)
+3. datetime (for working with dates and times)
+4. os       (for interacting with the operating system)
+5. sys      (for accessing system-specific information)
+6. re       (for working with regular expressions)
+7. json     (for working with JSON data)
+
+
+STDIN AND STDOUT
+
+STDIN (Standard Input)
+- Used to take input from the user
+
+STDOUT (Standard Output)
+- Used to display output to the user
