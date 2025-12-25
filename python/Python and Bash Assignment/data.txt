@@ -1,0 +1,2 @@
+This file is created using Python.
+File handling is simple and useful.

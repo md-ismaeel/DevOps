@@ -86,6 +86,20 @@ common Python modules
 7. json     (for working with JSON data)
 
 
+Different file modules in python
+r- read
+w- write
+a- append
+r+- read and write
+a+- read and append
+w+- write and append
+rb- read binary
+wb- write binary
+ab- append binary
+r+b- read and write binary
+a+b- read and append binary
+
+
 STDIN AND STDOUT
 
 STDIN (Standard Input)
