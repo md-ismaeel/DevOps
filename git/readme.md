@@ -82,5 +82,3 @@ git stash                         # Save work temporarily
 git stash pop                     # Restore stashed work
 ```
 
-
-
