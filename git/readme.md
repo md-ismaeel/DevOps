@@ -82,3 +82,10 @@ git stash                         # Save work temporarily
 git stash pop                     # Restore stashed work
 ```
 
+## 10. connect to GitHub with SSH
+
+```bash
+ssh-keygen -t ed25519 -C "email"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+```
