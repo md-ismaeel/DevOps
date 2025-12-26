@@ -67,6 +67,17 @@ git tag <tag-name>       # Create a tag
 git push origin <tag>    # Push tag to remote
 ```
 
+## stash
+
+```bash
+git stash                 # Save work temporarily
+git stash pop             # Restore stashed work
+git stash list            # List stashed work
+git stash clear           # Clear stashed work
+git stash apply <index>   # Apply stashed work
+git stash drop <index>    # Discard stashed work
+```
+
 ## 8. Configuration (One-Time Setup) - Global
 
 ```bash
@@ -90,4 +101,40 @@ git stash pop                     # Restore stashed work
 ssh-keygen -t ed25519 -C "email"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
+```
+
+## 11. Rebase commands and hard flags and merge conflicts how to resolve them
+
+### Rebase
+
+```bash
+git rebase main         # Rebase current branch onto main
+git rebase --abort      # Abort current rebase
+git rebase --continue    # Continue current rebase
+git rebase --skip        # Skip current commit
+```
+
+### Conflict check & resolve
+
+```bash
+git status              # Check file status
+git diff                # View unstaged changes
+git add <file-name>     # Add file to staging
+git rebase --continue   # Continue current rebase
+```
+
+### Merge
+
+```bash
+git merge <branch>      # Merge a branch into current branch
+git merge --abort       # Abort current merge
+git merge --continue    # Continue current merge
+```
+
+### Reset (Hard)
+
+```bash
+git reset --hard HEAD
+git reset --hard <commit-hash>
+git reset --hard origin/main
 ```
