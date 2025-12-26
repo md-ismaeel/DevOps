@@ -23,11 +23,13 @@ git show <commit>   # Show details of a commit
 
 ```bash
 git branch               # List local branches
+git branch -a            # List all branches (local + remote)
+git branch -r            # List remote branches
 git branch <name>        # Create a new branch
-git branch -d <name>     # Delete a branch
+git branch -d <name>     # Delete a branch from local
+git branch -D <name>     # Delete a branch from remote
 git checkout <branch>    # Switch branch
 git checkout -b <name>   # Create & switch branch
-git branch -a            # List all branches (local + remote)
 ```
 
 ## 4. Remote Repositories
@@ -65,7 +67,7 @@ git tag <tag-name>       # Create a tag
 git push origin <tag>    # Push tag to remote
 ```
 
-## 8. Configuration (One-Time Setup)
+## 8. Configuration (One-Time Setup) - Global
 
 ```bash
 git config --global user.name "Your Name"

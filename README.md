@@ -1,8 +1,6 @@
-# 👋 Hi, I'm Md Ismail
-
 ### DevOps Enthusiast
 
-🚀 DevOps enthusiast passionate about improving software delivery, automation, and system reliability. Interested in working with modern DevOps tools to streamline development, deployment, and maintenance processes.
+DevOps enthusiast passionate about improving software delivery, automation, and system reliability. Interested in working with modern DevOps tools to streamline development, deployment, and maintenance processes.
 
 ## 🛠 Tools & Technologies
 
