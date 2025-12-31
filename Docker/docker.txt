@@ -1,0 +1,6 @@
+what is docker?
+docker is a containerization platform that allows developers to package, share, and run applications on a virtual machine (VM).
+
+
+what is a container?
+a container is a lightweight, isolated environment that contains everything needed to run an application, including code, dependencies, and configuration files.

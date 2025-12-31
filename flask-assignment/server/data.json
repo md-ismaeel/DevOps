@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "name": "Milk",
+        "price": 50
+    },
+    {
+        "id": 2,
+        "name": "Paneer",
+        "price": 250
+    },
+    {
+        "id": 3,
+        "name": "Butter",
+        "price": 100
+    },
+    {
+        "id": 4,
+        "name": "Bread",
+        "price": 50
+    },
+    {
+        "id": 5,
+        "name": "Salt",
+        "price": 20
+    }
+]

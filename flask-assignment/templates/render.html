@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/users.css') }}" />
+</head>
+
+<body>
+    <div class="container">
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %} 
+        
+        {% if users|length == 0 %}
+        <h2>No users found</h2>
+        {% endif %} 
+        
+        {% for user in users %}
+        <div class="user-card">
+            <h2 class="user-name">{{ user.name }}</h2>
+            <span class="divider"></span>
+            <p class="user-email">{{ user.email }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
