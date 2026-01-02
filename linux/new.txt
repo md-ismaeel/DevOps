@@ -1,0 +1,239 @@
+
+BASIC LINUX commands   
+--------------------
+ls            - List files and directories
+ls -a         - List all files including hidden files
+ls -l         - Long listing format
+ls -la / ls -al - Long listing including hidden files
+
+pwd           - Print current working directory
+cd            - Change directory
+cd ..         - Move to parent directory
+cd ~          - Move to home directory
+
+clear         - Clear terminal screen
+exit          - Exit the terminal
+
+FILE & DIRECTORY MANAGEMENT
+----------------------------
+mkdir         - Create a directory
+mkdir -p      - Create nested directories if they don't exist
+
+rmdir         - Remove empty directory
+rm            - Delete files
+rm -r         - Delete directories recursively
+rm -rf        - Force delete files/directories
+
+cp            - Copy files
+cp -r         - Copy directories
+mv            - Move or rename files/directories
+
+touch         - Create empty file
+stat          - Display detailed file info
+file          - Identify file type
+
+ln            - Create hard link
+ln -s         - Create symbolic (soft) link
+
+tree          - Display directory structure
+tree -L 2     - Limit display to 2 levels deep
+tree devops     - Display structure of devops directory
+tree -a         - Display hidden files
+tree -d         - Display directories only
+tree -da -L 2   - Display directories and hidden files  
+tree -L 3 > structure.txt
+tree --help
+tree --version
+
+
+FILE VIEWING & TEXT PROCESSING
+----------------------------
+cat           - Display file contents
+less          - View file content page by page
+more          - View file content (basic)
+
+head          - Show first lines of a file
+head -n 10    - Show first 10 lines
+
+tail          - Show last lines of a file
+tail -f       - Live monitoring of file changes
+
+wc            - Count lines, words, characters
+sort          - Sort file content
+uniq          - Remove duplicate lines
+cut           - Extract columns from text
+awk           - Pattern scanning and processing
+sed           - Stream editor for text manipulation
+
+
+SEARCH & FIND
+--------------
+
+grep          - Search text patterns
+grep -i       - Case-insensitive search
+grep -r       - Recursive search
+
+find          - Search files and directories
+locate        - Fast file search (uses database)
+which         - Show command path
+whereis       - Locate binary, source, and man pages
+whatis        - Short command description
+
+SYSTEM INFORMATION
+-------------------
+uname         - OS information
+uname -a      - Detailed system info
+
+whoami        - Current logged-in user
+who           - Logged-in users
+id            - User and group IDs
+
+hostname      - Show system hostname
+uptime        - System running time
+date          - Show system date & time
+
+free          - Memory usage
+free -h       - Human-readable memory info
+
+df            - Disk usage
+df -h         - Human-readable disk usage
+
+du            - Directory size
+du -sh        - Summary of directory size
+
+
+PROCESS MANAGEMENT
+-------------------
+ps            - Show running processes
+ps aux        - Detailed process list
+
+top           - Live process monitoring
+htop          - Enhanced top (if installed)
+
+kill          - Kill process by PID
+kill -9       - Force kill process
+killall       - Kill process by name
+
+bg            - Resume process in background
+fg            - Resume process in foreground
+jobs          - List background jobs
+
+NETWORKING COMMANDS
+-------------------
+curl          - Transfer data from or to a server using URLs
+curl -O       - Download file and keep original name
+curl -o       - Download file with custom name
+curl -I       - Fetch HTTP headers only
+curl -X GET   - Send GET request
+curl -X POST  - Send POST request
+
+wget          - Download files from the internet
+wget -c       - Resume interrupted download
+wget -q       - Quiet download mode
+
+ping          - Check network connectivity
+traceroute   - Show network path to destination
+
+ip a          - Show IP addresses
+ip r          - Show routing table
+
+ifconfig     - Display network interfaces (legacy)
+netstat      - Network statistics (legacy)
+ss           - Modern replacement for netstat
+
+ssh           - Secure Shell remote login
+ssh user@ip  - Connect to remote server
+
+scp           - Securely copy files between systems
+rsync        - Fast file transfer & synchronization
+
+ftp           - File Transfer Protocol (legacy)
+telnet       - Remote connection (insecure, legacy)
+
+nmap         - Network scanning & port discovery
+
+ARCHIVE & COMPRESSION
+----------------------
+tar           - Create/extract archives
+tar -xvf      - Extract tar file
+tar -cvf      - Create tar file
+
+zip           - Compress files
+unzip         - Extract zip files
+
+gzip          - Compress files
+gunzip        - Decompress files
+
+PERMISSIONS & OWNERSHIP
+------------------------
+chmod         - Change file permissions
+chmod 755     - Set permission using numeric mode
+
+chown         - Change file owner
+chgrp         - Change group ownership
+
+umask         - Default permission settings
+
+PACKAGE MANAGEMENT
+--------------------
+apt           - Debian/Ubuntu package manager
+apt update    - Update package list
+apt upgrade   - Upgrade packages
+apt install   - Install packages
+apt remove    - Remove packages
+
+yum           - RHEL/CentOS package manager
+dnf           - Newer yum alternative
+pacman        - Arch Linux package manager
+rpm           - Low-level package manager
+
+ENVIRONMENT & VARIABLES
+------------------------
+env           - Show environment variables
+export        - Set environment variables
+printenv      - Print environment variables
+
+alias         - Create command shortcuts
+unalias       - Remove alias
+history       - Command history
+!!            - Run previous command
+
+SERVICES & FIREWALL
+---------------------
+service       - Start/stop services (SysV)
+systemctl    - Manage systemd services
+
+ufw           - Firewall management
+ufw status    - Firewall status
+ufw enable    - Enable firewall
+
+TERMINAL CONTROL
+---------------------
+tput rmam     - Disable line wrapping
+tput smam     - Enable line wrapping
+reset         - Reset terminal
+clear         - Clear terminal screen
+
+
+HELP & DOCUMENTATION
+---------------------
+man           - Manual pages
+info          - GNU documentation
+--help        - Command help option
+
+
+IMPORTANT SHORTCUT KEYS
+---------------------
+Ctrl + C      - Stop running command
+Ctrl + Z      - Pause process
+Ctrl + D      - Logout / EOF
+Ctrl + L      - Clear terminal
+Tab           - Auto-complete command
+Shift + Tab   - Reverse auto-complete
+Alt + Up/Down - Navigate history
+Alt + Right   - Move cursor word by word
+Alt + Left    - Move cursor word by word
+Alt + Backspace - Delete word by word
+f11           - Fullscreen mode
+f12           - Exit fullscreen mode
+
