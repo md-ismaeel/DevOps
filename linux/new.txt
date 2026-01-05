@@ -1,6 +1,6 @@
 
 BASIC LINUX commands   
---------------------
+----------------------------
 ls            - List files and directories
 ls -a         - List all files including hidden files
 ls -l         - Long listing format
@@ -67,8 +67,7 @@ sed           - Stream editor for text manipulation
 
 
 SEARCH & FIND
---------------
-
+----------------
 grep          - Search text patterns
 grep -i       - Case-insensitive search
 grep -r       - Recursive search
@@ -236,4 +235,6 @@ Alt + Left    - Move cursor word by word
 Alt + Backspace - Delete word by word
 f11           - Fullscreen mode
 f12           - Exit fullscreen mode
+
+
 

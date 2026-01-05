@@ -1,0 +1,124 @@
+DOCKER DELETE / REMOVE COMMANDS CHEAT SHEET
+=========================================
+
+1. LIST COMMANDS
+----------------
+List running containers:
+docker ps
+
+List all containers (running + stopped):
+docker ps -a
+
+List images:
+docker images
+
+List volumes:
+docker volume ls
+
+List networks:
+docker network ls
+
+
+2. CONTAINER REMOVE COMMANDS
+----------------------------
+
+Stop a container:
+docker stop <container_name_or_id>
+
+Remove a stopped container:
+docker rm <container_name_or_id>
+
+Force remove a running container:
+docker rm -f <container_name_or_id>
+
+Remove all stopped containers:
+docker container prune
+
+Remove ALL containers (dangerous):
+docker rm -f $(docker ps -aq)
+
+
+3. IMAGE REMOVE COMMANDS
+------------------------
+
+Remove an image by name:
+docker rmi nginx
+
+Remove an image by ID:
+docker rmi <image_id>
+
+Force remove image:
+docker rmi -f nginx
+
+Remove unused images:
+docker image prune
+
+Remove ALL images (dangerous):
+docker rmi -f $(docker images -q)
+
+
+4. REMOVE CONTAINERS USING A SPECIFIC IMAGE
+-------------------------------------------
+
+Stop & remove all containers using nginx image:
+docker ps -a --filter ancestor=nginx -q | xargs -r docker rm -f
+
+
+5. VOLUME REMOVE COMMANDS
+-------------------------
+
+Remove a volume:
+docker volume rm <volume_name>
+
+Remove unused volumes:
+docker volume prune
+
+Remove ALL volumes (dangerous):
+docker volume rm $(docker volume ls -q)
+
+
+6. NETWORK REMOVE COMMANDS
+--------------------------
+
+Remove a network:
+docker network rm <network_name>
+
+Remove unused networks:
+docker network prune
+
+
+7. COMPLETE DOCKER CLEANUP (VERY DANGEROUS)
+-------------------------------------------
+
+Remove:
+- all containers
+- all images
+- all volumes
+- all networks
+
+docker system prune -a --volumes
+
+
+8. SAFE DAILY CLEANUP (RECOMMENDED)
+-----------------------------------
+
+Remove stopped containers, unused images, networks:
+docker system prune
+
+
+9. PORT DEBUGGING
+-----------------
+
+Check which container uses a port:
+docker ps --format "table {{.Names}}\t{{.Ports}}"
+
+Check port usage on system:
+ss -lntp
+
+
+BEST PRACTICE
+-------------
+✔ Always stop containers before removing images
+✔ Use ports above 1024 (e.g. 3000, 6000, 8080)
+✔ Name containers when running:
+docker run -d --name mynginx -p 6000:80 nginx

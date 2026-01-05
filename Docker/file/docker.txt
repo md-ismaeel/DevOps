@@ -56,29 +56,34 @@ Docker simplifies application development and deployment by using containers, wh
 
 Docker Installation Commands (Ubuntu 24.04)
 
-1. Update system
-sudo apt update
+- Update system sudo apt update
+- Install Docker Engine                sudo apt install docker.io -y
+- Start Docker service                 udo systemctl start docker
+- Enable Docker on boot                sudo systemctl enable docker
+- Check Docker version                 docker --version
+- Add current user to docker group     sudo usermod -aG docker $USER
+- Apply group changes                  newgrp docker
+- Verify Docker is running             docker ps
+- Test Docker installation docker run hello-world
 
-2. Install Docker Engine
-sudo apt install docker.io -y
+## Docker Commands
 
-3. Start Docker service
-sudo systemctl start docker
-
-4. Enable Docker on boot
-sudo systemctl enable docker
-
-5. Check Docker version
-docker --version
-
-6. Add current user to docker group
-sudo usermod -aG docker $USER
-
-7. Apply group changes
-newgrp docker
-
-8. Verify Docker is running
-docker ps
-
-9. Test Docker installation
-docker run hello-world
+- List all running containers          docker ps
+- List all stopped containers          docker ps -a 
+- List all containers id               docker ps -aq
+- Create a new container               docker run -it <image_name>
+- Start a stopped container            docker start <container_id>
+- Stop a running container             docker stop <container_id>
+- Remove a container                   docker rm <container_id>
+- List all images                      docker images
+- Remove an image                      docker rmi <image_id>
+- Pull an image from a registry        docker pull <image_name>
+- Push an image to a registry          docker push <image_name>
+- Run a command inside a container     docker exec -it <container_id> bash
+- Enter a container shell              docker exec -it <container_id> /bin/bash
+- Pull an image                        docker pull <image_name> or docker run <image_name>
+- Docker port mapping                  docker run -it -p <host_port>:<container_port> <image_name>
+- Docker logs                          docker logs <container_id>
+- Run a command inside a container     docker exec -it <container_id> <command>
+- Inspect a container                  docker inspect <container_id> 
+- Docker Network                       docker network create <network_name>

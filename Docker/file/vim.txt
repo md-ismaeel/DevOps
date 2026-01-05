@@ -1,0 +1,27 @@
+Vim Commands Cheat Sheet (Editing a.tsx)
+
+1. Open file:
+vim a.tsx
+
+2. Modes:
+- Normal mode: navigation, commands (default mode)
+- Insert mode: editing text (press 'i' to enter)
+
+3. Enter Insert Mode:
+i   --> start typing / editing
+
+4. Save & Close:
+- Save & quit: :wq  (Esc, then type :wq and Enter)
+- Save only: :w   (Esc, then type :w and Enter)
+- Quit without saving: :q!  (Esc, then type :q! and Enter)
+- Quick save & quit: ZZ  (Shift+Z twice in Normal mode)
+
+5. Summary:
+| Action                   | Command       |
+|---------------------------|---------------|
+| Enter insert mode         | i             |
+| Save file                 | :w            |
+| Quit Vim                  | :q            |
+| Save & quit               | :wq           |
+| Quit without saving       | :q!           |
+| Quick save & quit         | ZZ            |
