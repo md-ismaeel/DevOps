@@ -1,0 +1,16 @@
+AWS is a leading cloud computing platform by Amazon that provides on-demand access to IT resources such as servers, storage, databases, networking, security, and DevOps tools over the internet. Instead of buying and maintaining physical servers, users can rent computing power and services from AWS and pay only for what they use.
+
+AWS is widely used for:
+• Hosting websites and applications
+• Storing and processing large amounts of data
+• Running DevOps pipelines and automation
+• Building scalable microservices and APIs
+• Machine learning, analytics, and IoT solutions
+
+Key benefits of AWS include:
+• Scalability – easily scale up or down
+• Reliability – high availability across regions
+• Security – built-in identity and access management
+• Cost efficiency – pay-as-you-go pricing
+
+AWS helps developers, startups, and enterprises build fast, secure, and globally available applications.

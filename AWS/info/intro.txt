@@ -1,0 +1,95 @@
+Networking:
+DNS
+Ingress
+Nginx
+Reverse Proxy
+SSL / TLS
+SSH
+IPv4 / IPv6
+Security Groups
+VPC
+Subnets (Public / Private)
+Route Tables
+Internet Gateway
+NAT Gateway
+Load Balancer (ALB / NLB / CLB)
+CIDR Blocks
+VPC Peering
+VPN
+Direct Connect
+
+Categories of AWS Services:
+
+Compute:
+EC2
+Elastic Beanstalk
+Lambda
+ECS (Elastic Container Service)
+ECR (Elastic Container Registry)
+EKS (Elastic Kubernetes Service)
+Auto Scaling Groups
+
+Storage:
+S3
+Elastic Block Store (EBS)
+Elastic File System (EFS)
+Glacier
+AWS Backup
+
+Database:
+RDS
+DynamoDB
+Redshift
+ElastiCache
+Aurora
+DocumentDB
+
+Networking & Content Delivery:
+VPC
+Route 53
+CloudFront
+API Gateway
+Elastic Load Balancer
+
+Security & Identity:
+IAM
+Cognito
+KMS
+Secrets Manager
+Certificate Manager (ACM)
+Shield
+WAF
+
+Monitoring & Management:
+CloudWatch
+CloudTrail
+AWS Config
+Systems Manager
+
+Migration & Transfer:
+Database Migration Service (DMS)
+Server Migration Service (SMS)
+Snowball
+DataSync
+Transfer Family (SFTP/FTPS/FTP)
+
+DevOps & CI/CD:
+CodeCommit
+CodeBuild
+CodeDeploy
+CodePipeline
+CloudFormation
+CDK
+
+Analytics:
+Athena
+EMR
+Glue
+Kinesis
+QuickSight
+
+Application Integration:
+SQS
+SNS
+Step Functions
+EventBridge
