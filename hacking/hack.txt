@@ -1,0 +1,10 @@
+sudo apt update
+sudo apt install asciiquarium cmatrix sl neofetch cowsay -y
+
+
+# To run any of the installed programs, just type their name in the terminal:
+asciiquarium
+cmatrix
+sl
+neofetch
+cowsay "Welcome to DevOps, Ismail!"
