@@ -58,5 +58,22 @@ def users():
     users_list = list(collection.find({}, {"_id": 0}))
     return render_template("render.html", users=users_list)
 
+
+@app.route('/submittodoitem', methods=['POST'])
+def submit_todo_item():
+    data = request.form or request.json
+    itemName = data.get('itemName')
+    itemDescription = data.get('itemDescription')
+
+    if not itemName or not itemDescription:
+        return jsonify({"error": "Missing fields"}), 400
+
+    collection.insert_one({
+        "itemName": itemName,
+        "itemDescription": itemDescription
+    })
+
+    return jsonify({"message": "Item saved"}), 201
+
 if __name__ == "__main__":
     app.run(debug=True)

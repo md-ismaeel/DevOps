@@ -1,3 +1,5 @@
+Amazon Web Services (AWS) – Overview
+
 AWS is a leading cloud computing platform by Amazon that provides on-demand access to IT resources such as servers, storage, databases, networking, security, and DevOps tools over the internet. Instead of buying and maintaining physical servers, users can rent computing power and services from AWS and pay only for what they use.
 
 AWS is widely used for:
@@ -10,7 +12,67 @@ AWS is widely used for:
 Key benefits of AWS include:
 • Scalability – easily scale up or down
 • Reliability – high availability across regions
-• Security – built-in identity and access management
+• Security – built-in identity and access management (IAM)
 • Cost efficiency – pay-as-you-go pricing
 
-AWS helps developers, startups, and enterprises build fast, secure, and globally available applications.
+--------------------------------------------------
+
+AWS CLI Installation
+
+On Ubuntu / WSL:
+sudo apt update
+sudo apt install awscli -y
+
+On Windows (PowerShell):
+msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi
+
+On macOS (Homebrew):
+brew install awscli
+
+Verify installation:
+aws --version
+
+--------------------------------------------------
+
+Configure AWS CLI
+
+aws configure
+
+You will be asked for:
+• AWS Access Key ID
+• AWS Secret Access Key
+• Default region (e.g. ap-south-1)
+• Output format (json)
+
+--------------------------------------------------
+
+Beginner AWS CLI Commands
+
+List S3 Buckets:
+aws s3 ls
+
+Create an S3 Bucket:
+aws s3 mb s3://my-first-bucket-ismail
+
+Upload a File to S3:
+aws s3 cp test.txt s3://my-first-bucket-ismail/
+
+Download a File from S3:
+aws s3 cp s3://my-first-bucket-ismail/test.txt .
+
+List EC2 Instances:
+aws ec2 describe-instances
+
+List IAM Users:
+aws iam list-users
+
+--------------------------------------------------
+
+Common AWS Services
+
+EC2    - Virtual servers
+S3     - Object storage
+IAM    - Users & permissions
+RDS    - Managed databases
+VPC    - Networking
+Lambda - Serverless functions
