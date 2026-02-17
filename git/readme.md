@@ -26,7 +26,7 @@ This comprehensive guide covers all essential Git commands from beginner to adva
 git config --global user.name "Your Name"
 
 # Set global user email
-git config --global user.email "your.email@example.com"
+git config --global user.email "mdismaeelkhan345@gmail.com"
 
 # Set local repository user (overrides global)
 git config user.name "Local Name"
@@ -47,26 +47,28 @@ git config --global core.autocrlf true
 ## Generate new SSH key (Ed25519 recommended)
 
 ```bash
-ssh-keygen -t ed25519 -C "your.email@example.com"
+ssh-keygen -t ed25519 -C "mdismaeelkhan345@gmail.com"
 
-# If Ed25519 not supported, use RSA
-ssh-keygen -t rsa -b 4096 -C "your.email@example.com"
+# If Ed25519 not supported, use RSA (use custom file recomemded)
+ssh-keygen -t rsa -b 4096 -C "mdismaeelkhan345@gmail.com" -f ~/.ssh/github_rsa_key
 
 # Start SSH agent
 eval "$(ssh-agent -s)"
 
 # Add private key to agent
-ssh-add ~/.ssh/id_ed25519
+ssh-add ~/.ssh/github_rsa_key
 
 # View public key (copy this to Git provider)
-cat ~/.ssh/id_ed25519.pub
+cat ~/.ssh/github_rsa_key.pub
 
 # Test SSH connection (example GitHub)
 ssh -T git@github.com
 
+# remove old ssh key
+ssh-add -D
+
 # Edit SSH config
 nano ~/.ssh/config
-
 ```
 
 **Use Case:** Essential for initial Git setup. DevOps engineers use this to configure multiple identities for different projects.
