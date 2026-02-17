@@ -44,6 +44,7 @@ git config --global init.defaultBranch main
 git config --global core.autocrlf true
 ```
 
+
 ## Generate new SSH key (Ed25519 recommended)
 
 ```bash
