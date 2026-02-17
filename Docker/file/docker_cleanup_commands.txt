@@ -44,7 +44,7 @@ docker rm -f $(docker ps -aq)
 Remove an image by name:
 docker rmi nginx
 
-Remove an image by ID:
+Remove an image by ID: 
 docker rmi <image_id>
 
 Force remove image:

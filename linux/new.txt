@@ -100,6 +100,8 @@ df -h         - Human-readable disk usage
 du            - Directory size
 du -sh        - Summary of directory size
 
+neofetch      - System information
+
 
 PROCESS MANAGEMENT
 -------------------

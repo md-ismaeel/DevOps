@@ -44,6 +44,31 @@ git config --global init.defaultBranch main
 git config --global core.autocrlf true
 ```
 
+## Generate new SSH key (Ed25519 recommended)
+
+```bash
+ssh-keygen -t ed25519 -C "your.email@example.com"
+
+# If Ed25519 not supported, use RSA
+ssh-keygen -t rsa -b 4096 -C "your.email@example.com"
+
+# Start SSH agent
+eval "$(ssh-agent -s)"
+
+# Add private key to agent
+ssh-add ~/.ssh/id_ed25519
+
+# View public key (copy this to Git provider)
+cat ~/.ssh/id_ed25519.pub
+
+# Test SSH connection (example GitHub)
+ssh -T git@github.com
+
+# Edit SSH config
+nano ~/.ssh/config
+
+```
+
 **Use Case:** Essential for initial Git setup. DevOps engineers use this to configure multiple identities for different projects.
 
 ### `git init`
