@@ -94,11 +94,15 @@ Lambda - Serverless functions
 EC2
 SHH Client 
 chmod 400 "dev.pem"        => Change file permissions
-ssh -i ~/.ssh/dev.pem ubuntu@ec2-43-204-228-238.ap-south-1.compute.amazonaws.com
-ssh -i ~/.ssh/dev.pem ubuntu@43.204.228.238     public ipv4 address
 
+# Connect to an EC2 instance using public DNS
+ssh -i ~/.ssh/dev.pem ubuntu@ec2-43-204-228-238.ap-south-1.compute.amazonaws.com
+
+# Connect to an EC2 instance using public ipv4 address
+ssh -i ~/.ssh/dev.pem ubuntu@43.204.228.238     public ipv4 address
 
 shh(Secure Shell)
 scp(Secure Copy)
 
+# Upload a local file to an EC2 instance
 scp -i ~/.ssh/dev.pem -r /e/devops/Docker/project/backend ubuntu@43.204.228.238:~/backend
