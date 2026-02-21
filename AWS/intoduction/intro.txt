@@ -106,3 +106,70 @@ scp(Secure Copy)
 
 # Upload a local file to an EC2 instance
 scp -i ~/.ssh/dev.pem -r /e/devops/Docker/project/backend ubuntu@43.204.228.238:~/backend
+
+# Nginx install on server 
+Nginx Reverse Proxy Guide
+
+Reverse Proxy — Explanation
+A reverse proxy is a server that sits in front of backend servers and forwards client requests to them.
+It hides backend servers, improves security, enables load balancing, SSL termination, and caching.
+
+Flow:
+Client -> Nginx -> Backend App
+
+
+# Install Nginx (Ubuntu/Debian)
+sudo apt update
+sudo apt install nginx -y
+sudo systemctl start nginx
+sudo systemctl enable nginx
+sudo systemctl status nginx
+
+
+Allow Firewall
+sudo ufw allow 'Nginx Full'
+sudo ufw reload
+
+
+Create Reverse Proxy Config
+sudo nano /etc/nginx/sites-available/myapp
+
+Example config:
+
+server {
+    listen 80;
+    server_name your_domain_or_ip;
+
+    location / {
+        proxy_pass http://127.0.0.1:5000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+
+
+Enable Config
+sudo ln -s /etc/nginx/sites-available/myapp /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl reload nginx
+
+
+Useful Commands
+sudo systemctl start nginx
+sudo systemctl stop nginx
+sudo systemctl restart nginx
+sudo systemctl reload nginx
+sudo nginx -t
+
+sudo lsof -i -P -n                 => Show All Network Connections
+sudo lsof -i -P -n | grep LISTEN   => Show Only Listening Ports
+
+
+Logs
+/var/log/nginx/access.log
+/var/log/nginx/error.log
+
+
+Summary
+Reverse proxy lets Nginx receive requests and forward them to your app running on another port, keeping backend hidden and secure.

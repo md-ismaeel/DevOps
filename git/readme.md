@@ -44,13 +44,12 @@ git config --global init.defaultBranch main
 git config --global core.autocrlf true
 ```
 
-
 ## Generate new SSH key (Ed25519 recommended)
 
 ```bash
 ssh-keygen -t ed25519 -C "mdismaeelkhan345@gmail.com"
 
-# If Ed25519 not supported, use RSA (use custom file recomemded)
+# If Ed25519 not supported, use RSA (use custom file recommended)
 ssh-keygen -t rsa -b 4096 -C "mdismaeelkhan345@gmail.com" -f ~/.ssh/github_rsa_key
 
 # Start SSH agent
@@ -70,6 +69,34 @@ ssh-add -D
 
 # Edit SSH config
 nano ~/.ssh/config
+```
+
+## COPY SSH KEY FROM UBUNTU → WINDOWS
+
+```bash
+# create .ssh folder in Windows home
+mkdir -p /mnt/c/Users/mdism/.ssh
+
+# copy existing key from Ubuntu
+cp ~/.ssh/github_rsa_key* /mnt/c/Users/mdism/.ssh/
+
+# OPEN GIT BASH / WINDOWS TERMINAL
+
+# FIX PERMISSIONS
+chmod 600 ~/.ssh/github_rsa_key
+
+
+# START SSH AGENT
+eval "$(ssh-agent -s)"
+
+
+# ADD KEY TO AGENT
+ssh-add ~/.ssh/github_rsa_key
+
+
+# TEST CONNECTION
+ssh -T git@github.com
+
 ```
 
 **Use Case:** Essential for initial Git setup. DevOps engineers use this to configure multiple identities for different projects.
@@ -250,13 +277,16 @@ git branch -r
 git branch <branch-name>
 
 # Create and switch to new branch
-git branch -b <branch-name>  # Note: use 'git checkout -b' instead
+git checkout -b <branch-name>  # Note: use 'git checkout -b' instead
 
 # Delete a branch
 git branch -d <branch-name>
 
 # Force delete a branch
 git branch -D <branch-name>
+
+# Delete remote branch
+git push origin --delete <branch-name>
 
 # Rename a branch
 git branch -m <old-name> <new-name>
