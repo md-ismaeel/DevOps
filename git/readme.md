@@ -78,7 +78,7 @@ nano ~/.ssh/config
 mkdir -p /mnt/c/Users/mdism/.ssh
 
 # copy existing key from Ubuntu
-cp ~/.ssh/github_rsa_key* /mnt/c/Users/mdism/.ssh/
+cp ~/.ssh/github_rsa_key /mnt/c/Users/mdism/.ssh/
 
 # OPEN GIT BASH / WINDOWS TERMINAL
 

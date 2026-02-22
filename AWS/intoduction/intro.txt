@@ -10,7 +10,6 @@ AWS CloudShell
 AWS EC2
 
 
-
 Amazon Web Services (AWS) – Overview
 
 AWS is a leading cloud computing platform by Amazon that provides on-demand access to IT resources such as servers, storage, databases, networking, security, and DevOps tools over the internet. Instead of buying and maintaining physical servers, users can rent computing power and services from AWS and pay only for what they use.
