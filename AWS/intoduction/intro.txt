@@ -62,19 +62,19 @@ You will be asked for:
 Beginner AWS CLI Commands
 
 List S3 Buckets:
-aws s3 ls
+    aws s3 ls
 
 Create an S3 Bucket:
-aws s3 mb s3://my-first-bucket-ismail
+    aws s3 mb s3://my-first-bucket-ismail
 
 Upload a File to S3:
-aws s3 cp test.txt s3://my-first-bucket-ismail/
+    aws s3 cp test.txt s3://my-first-bucket-ismail/
 
 Download a File from S3:
-aws s3 cp s3://my-first-bucket-ismail/test.txt .
+    aws s3 cp s3://my-first-bucket-ismail/test.txt .
 
 List EC2 Instances:
-aws ec2 describe-instances
+    aws ec2 describe-instances
 
 List IAM Users:
 aws iam list-users
@@ -96,19 +96,19 @@ SHH Client
 chmod 400 "dev.pem"        => Change file permissions
 
 # Connect to an EC2 instance using public DNS
-ssh -i ~/.ssh/dev.pem ubuntu@ec2-43-204-228-238.ap-south-1.compute.amazonaws.com
+    ssh -i ~/.ssh/dev.pem ubuntu@ec2-43-204-228-238.ap-south-1.compute.amazonaws.com
 
 # Connect to an EC2 instance using public ipv4 address
-ssh -i ~/.ssh/dev.pem ubuntu@43.204.228.238     public ipv4 address
+    ssh -i ~/.ssh/dev.pem ubuntu@43.204.228.238     public ipv4 address
 
 shh(Secure Shell)
 scp(Secure Copy)
 
 # Upload a local file to an EC2 instance
-scp -i ~/.ssh/dev.pem -r /e/devops/Docker/project/backend ubuntu@43.204.228.238:~/backend
+    scp -i ~/.ssh/dev.pem -r /e/devops/Docker/project/backend ubuntu@43.204.228.238:~/backend
 
 # Nginx install on server 
-Nginx Reverse Proxy Guide
+    Nginx Reverse Proxy Guide
 
 Reverse Proxy — Explanation
 A reverse proxy is a server that sits in front of backend servers and forwards client requests to them.
@@ -119,20 +119,21 @@ Client -> Nginx -> Backend App
 
 
 # Install Nginx (Ubuntu/Debian)
-sudo apt update
-sudo apt install nginx -y
-sudo systemctl start nginx
-sudo systemctl enable nginx
-sudo systemctl status nginx
+    sudo apt update
+    sudo apt install nginx -y
+    sudo systemctl start nginx
+    sudo systemctl enable nginx
+    sudo systemctl status nginx
+    sudo systemctl stop nginx
 
 
 Allow Firewall
-sudo ufw allow 'Nginx Full'
-sudo ufw reload
+    sudo ufw allow 'Nginx Full'
+    sudo ufw reload
 
 
 Create Reverse Proxy Config
-sudo nano /etc/nginx/sites-available/myapp
+    sudo nano /etc/nginx/sites-available/myapp
 
 Example config:
 
@@ -150,25 +151,32 @@ server {
 
 
 Enable Config
-sudo ln -s /etc/nginx/sites-available/myapp /etc/nginx/sites-enabled/
-sudo nginx -t
-sudo systemctl reload nginx
+    sudo ln -s /etc/nginx/sites-available/myapp /etc/nginx/sites-enabled/
+    sudo nginx -t
+    sudo systemctl reload nginx
 
 
 Useful Commands
-sudo systemctl start nginx
-sudo systemctl stop nginx
-sudo systemctl restart nginx
-sudo systemctl reload nginx
-sudo nginx -t
+    sudo systemctl start nginx
+    sudo systemctl stop nginx
+    sudo systemctl restart nginx
+    sudo systemctl reload nginx
+    sudo nginx -t
 
-sudo lsof -i -P -n                 => Show All Network Connections
-sudo lsof -i -P -n | grep LISTEN   => Show Only Listening Ports
+    sudo lsof -i -P -n                 => Show All Network Connections
+    sudo lsof -i -P -n | grep LISTEN   => Show Only Listening Ports
+
+# Run nginx in the background
+** nohup is running nginx to continue running even if the terminal is closed
+    sudo nohup nginx &   
+
+Stop the nginx process
+    sudo kill -9 $(sudo lsof -t -i:80)
 
 
 Logs
-/var/log/nginx/access.log
-/var/log/nginx/error.log
+    /var/log/nginx/access.log
+    /var/log/nginx/error.log
 
 
 Summary
