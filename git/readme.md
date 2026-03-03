@@ -61,14 +61,30 @@ ssh-add ~/.ssh/github_rsa_key
 # View public key (copy this to Git provider)
 cat ~/.ssh/github_rsa_key.pub
 
-# Test SSH connection (example GitHub)
+# SSH config for multiple hosts
+
+# Edit SSH config
+nano ~/.ssh/config
+
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/github_rsa_key
+  IdentitiesOnly yes
+
+Host gitlab.com
+  HostName gitlab.com
+  User git
+  IdentityFile ~/.ssh/github_rsa_key
+  IdentitiesOnly yes
+
+# Test SSH connection (example GitHub, GitLab)
 ssh -T git@github.com
+ssh -T git@gitlab.com
 
 # remove old ssh key
 ssh-add -D
 
-# Edit SSH config
-nano ~/.ssh/config
 ```
 
 ## COPY SSH KEY FROM UBUNTU → WINDOWS
