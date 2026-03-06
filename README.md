@@ -1,6 +1,7 @@
 # Comprehensive AWS Learning Guide: Beginner to Advanced
 
 ## Table of Contents
+
 1. [Introduction](#introduction)
 2. [Learning Roadmap Timeline](#learning-roadmap-timeline)
 3. [AWS Services Overview](#aws-services-overview)
@@ -9,23 +10,21 @@
 6. [DevOps Career Tips](#devops-career-tips)
 7. [Final Deployment Project](#final-deployment-project)
 
----
-
 ## Introduction
 
 Amazon Web Services (AWS) is the world's most comprehensive cloud platform, offering over 200 fully featured services from data centers globally. This guide will take you from zero knowledge to AWS proficiency, covering essential services used by enterprises worldwide.
 
 ### Why Learn AWS?
+
 - **Market Demand**: AWS skills are highly sought after in the job market
 - **Career Growth**: AWS certification holders earn 15-20% more than average IT professionals
 - **Real-World Application**: Used by Netflix, Airbnb, Spotify, and millions of other companies
 - **Cost Efficiency**: Learn to build scalable infrastructure at a fraction of traditional costs
 
----
-
 ## Learning Roadmap Timeline
 
 ### Month 1-2: Foundations (EC2, S3, IAM, VPC)
+
 - Understand cloud computing basics
 - Launch and manage EC2 instances
 - Store and retrieve data with S3
@@ -33,62 +32,79 @@ Amazon Web Services (AWS) is the world's most comprehensive cloud platform, offe
 - Network your resources with VPC
 
 ### Month 3: Storage & Database (RDS)
+
 - Set up relational databases
 - Understand database backups and replication
 - Learn query optimization
 
 ### Month 4: Load Balancing & Scaling (ELB, Auto Scaling)
+
 - Distribute traffic across instances
 - Implement auto-scaling policies
 - Achieve high availability
 
 ### Month 5: Monitoring & Logging (CloudWatch)
+
 - Monitor resource performance
 - Set up alerts and dashboards
 - Analyze logs effectively
 
 ### Month 6-7: Serverless & Containers (Lambda, ECS, EKS)
+
 - Deploy serverless functions
 - Containerize applications
 - Orchestrate containers at scale
 
 ### Month 8: CI/CD & DevOps (CodePipeline)
+
 - Automate deployment pipelines
 - Implement continuous integration
 - Practice DevOps best practices
 
----
-
 ## AWS Services Overview
 
-| Service | Purpose | Best For |
-|---------|---------|----------|
-| EC2 | Virtual servers in the cloud | Traditional applications, control |
-| S3 | Object storage | Files, backups, data lakes |
-| IAM | Identity & access management | Security, user management |
-| VPC | Isolated network | Network isolation, security |
-| RDS | Managed relational database | SQL databases, ACID compliance |
-| ELB | Load balancing | Distributing traffic |
-| Auto Scaling | Automatic scaling | Cost optimization, elasticity |
-| CloudWatch | Monitoring & logging | Metrics, alarms, troubleshooting |
-| Lambda | Serverless compute | Event-driven, low-cost processing |
-| ECS | Container orchestration | Docker container management |
-| EKS | Kubernetes on AWS | Kubernetes orchestration |
-| CodePipeline | CI/CD automation | Automated deployments |
-
----
+| Service      | Purpose                      | Best For                          |
+| ------------ | ---------------------------- | --------------------------------- |
+| EC2          | Virtual servers in the cloud | Traditional applications, control |
+| S3           | Object storage               | Files, backups, data lakes        |
+| IAM          | Identity & access management | Security, user management         |
+| VPC          | Isolated network             | Network isolation, security       |
+| RDS          | Managed relational database  | SQL databases, ACID compliance    |
+| ELB          | Load balancing               | Distributing traffic              |
+| Auto Scaling | Automatic scaling            | Cost optimization, elasticity     |
+| CloudWatch   | Monitoring & logging         | Metrics, alarms, troubleshooting  |
+| Lambda       | Serverless compute           | Event-driven, low-cost processing |
+| ECS          | Container orchestration      | Docker container management       |
+| EKS          | Kubernetes on AWS            | Kubernetes orchestration          |
+| CodePipeline | CI/CD automation             | Automated deployments             |
 
 ## Service Guides
+
+[EC2](#1-amazon-ec2-elastic-compute-cloud)
+[S3](#2-amazon-s3-simple-storage-service)
+[IAM](#3-amazon-identity-and-access-management)
+[VPC](#4-amazon-virtual-private-cloud)
+[RDS](#5-amazon-relational-database-service)
+[ELB](#6-amazon-elastic-load-balancer)
+[Auto Scaling](#7-amazon-auto-scaling)
+[CloudWatch](#8-amazon-cloudwatch)
+[Lambda](#9-aws-lambda)
+[ECS](#10-amazon-elastic-container-service)
+[EKS](#11-amazon-elastic-kubernetes-service)
+[CodePipeline](#12-amazon-codepipeline)
 
 ## 1. Amazon EC2 (Elastic Compute Cloud)
 
 ### What is EC2?
+
 EC2 is AWS's virtual server service that allows you to rent computing capacity in the cloud. Instead of buying physical servers, you can instantly launch virtual servers called "instances" and scale them up or down based on demand.
 
 ### Why Use EC2?
+
 **Real-World Example**: Netflix uses thousands of EC2 instances to stream videos to millions of users worldwide. Instead of building data centers, they elastically scale instances based on viewership patterns.
 
 **Advantages**:
+
 - Pay only for what you use
 - Resize instances at any time
 - Use pre-configured machine images (AMI)
@@ -97,6 +113,7 @@ EC2 is AWS's virtual server service that allows you to rent computing capacity i
 ### Key Concepts
 
 **Instance Types**:
+
 ```
 - t2/t3: Burstable performance (dev, testing)
 - m5/m6: General purpose (balanced workloads)
@@ -106,6 +123,7 @@ EC2 is AWS's virtual server service that allows you to rent computing capacity i
 ```
 
 **Instance States**:
+
 - Running: Instance is active and running
 - Stopped: Instance is stopped but not terminated
 - Terminated: Instance is deleted permanently
@@ -113,11 +131,13 @@ EC2 is AWS's virtual server service that allows you to rent computing capacity i
 - Stopping: Instance is shutting down
 
 **AMI (Amazon Machine Image)**:
+
 - Pre-configured template for instances
 - Contains OS, software, and configurations
 - Can be created from existing instances
 
 **Security Groups**:
+
 - Virtual firewall controlling inbound/outbound traffic
 - Define rules based on protocol and port
 - Act as stateful firewall
@@ -125,6 +145,7 @@ EC2 is AWS's virtual server service that allows you to rent computing capacity i
 ### Step-by-Step Setup Guide
 
 #### Step 1: Create a Security Group
+
 ```bash
 # Using AWS CLI
 aws ec2 create-security-group \
@@ -140,6 +161,7 @@ aws ec2 authorize-security-group-ingress \
 ```
 
 #### Step 2: Create a Key Pair
+
 ```bash
 # Generate key pair
 aws ec2 create-key-pair \
@@ -151,6 +173,7 @@ chmod 400 my-key.pem
 ```
 
 #### Step 3: Launch an Instance
+
 ```bash
 # Launch t2.micro instance (free tier eligible)
 aws ec2 run-instances \
@@ -161,6 +184,7 @@ aws ec2 run-instances \
 ```
 
 #### Step 4: Connect to Instance
+
 ```bash
 # Connect via SSH
 ssh -i my-key.pem ec2-user@<public-ip>
@@ -174,6 +198,7 @@ sudo systemctl start httpd
 ```
 
 #### Step 5: Create AMI from Instance
+
 ```bash
 # Create image from running instance
 aws ec2 create-image \
@@ -267,12 +292,14 @@ aws ec2 revoke-security-group-ingress --group-id sg-xxxxx --protocol tcp --port 
 **Objective**: Deploy a 2-tier web application with EC2
 
 **Requirements**:
+
 - Web tier: Apache server on EC2
 - Database tier: RDS MySQL instance
 - Security groups: Restrict database access to web servers only
 - Key pairs: Secure SSH access
 
 **Steps**:
+
 1. Create security groups for web and database tiers
 2. Launch EC2 instance for web server
 3. Install Apache and PHP
@@ -280,17 +307,18 @@ aws ec2 revoke-security-group-ingress --group-id sg-xxxxx --protocol tcp --port 
 5. Configure web server to connect to database
 6. Test application connectivity
 
----
-
 ## 2. Amazon S3 (Simple Storage Service)
 
 ### What is S3?
+
 S3 is AWS's object storage service that stores data as objects within buckets. Unlike traditional file systems, S3 stores unlimited objects with built-in redundancy across multiple data centers.
 
 ### Why Use S3?
+
 **Real-World Example**: Airbnb uses S3 to store millions of property photos. Users can upload images, and Airbnb serves them globally with CloudFront, ensuring fast delivery worldwide.
 
 **Advantages**:
+
 - Unlimited storage capacity
 - 99.999999999% (11 nines) durability
 - Global distribution capabilities
@@ -300,6 +328,7 @@ S3 is AWS's object storage service that stores data as objects within buckets. U
 ### Key Concepts
 
 **Bucket Structure**:
+
 ```
 Bucket: my-company-data
 ├── photos/
@@ -312,12 +341,14 @@ Bucket: my-company-data
 ```
 
 **Storage Classes**:
+
 - S3 Standard: Frequent access, 99.99% availability
 - S3 Standard-IA: Infrequent access, lower cost
 - S3 Glacier: Archive data, very low cost
 - S3 Glacier Deep Archive: Long-term archival
 
 **Object Metadata**:
+
 - Content-Type: Type of object (image/png, application/pdf)
 - Cache-Control: Browser caching rules
 - Metadata Tags: Custom key-value pairs
@@ -326,6 +357,7 @@ Bucket: my-company-data
 ### Step-by-Step Setup Guide
 
 #### Step 1: Create an S3 Bucket
+
 ```bash
 # Create bucket (globally unique name)
 aws s3 mb s3://my-unique-bucket-name
@@ -335,6 +367,7 @@ aws s3 mb s3://my-bucket --region us-west-2
 ```
 
 #### Step 2: Upload Objects
+
 ```bash
 # Upload single file
 aws s3 cp document.pdf s3://my-bucket/documents/
@@ -348,6 +381,7 @@ aws s3 cp image.jpg s3://my-bucket/images/ \
 ```
 
 #### Step 3: Configure Versioning
+
 ```bash
 # Enable versioning
 aws s3api put-bucket-versioning \
@@ -359,6 +393,7 @@ aws s3api list-object-versions --bucket my-bucket
 ```
 
 #### Step 4: Set Bucket Policy
+
 ```bash
 # Create policy file (bucket-policy.json)
 cat > bucket-policy.json << 'EOF'
@@ -385,6 +420,7 @@ aws s3api put-bucket-policy --bucket my-bucket --policy file://bucket-policy.jso
 ```
 
 #### Step 5: Configure Lifecycle Rules
+
 ```bash
 # Create lifecycle policy (lifecycle.json)
 cat > lifecycle.json << 'EOF'
@@ -515,6 +551,7 @@ aws s3api put-public-access-block \
 **Objective**: Host a static website on S3 with CloudFront
 
 **Requirements**:
+
 - Create S3 bucket for website files
 - Configure static website hosting
 - Set up CloudFront distribution for caching
@@ -522,6 +559,7 @@ aws s3api put-public-access-block \
 - Add custom domain (optional)
 
 **Steps**:
+
 1. Create S3 bucket
 2. Upload HTML, CSS, JS files
 3. Enable static website hosting
@@ -529,21 +567,23 @@ aws s3api put-public-access-block \
 5. Point domain to CloudFront
 6. Test website accessibility
 
----
-
 ## 3. AWS IAM (Identity and Access Management)
 
 ### What is IAM?
+
 IAM is AWS's centralized access control service that manages who can do what within your AWS account. It allows you to create users, roles, policies, and control fine-grained permissions across all AWS services.
 
 ### Why Use IAM?
+
 **Real-World Example**: A startup has developers, DevOps engineers, and finance teams. IAM allows:
+
 - Developers: EC2, S3, CloudWatch access only
 - DevOps: Full access to deployment services
 - Finance: Billing and cost management access only
 - Root account: Never used, kept secure
 
 **Advantages**:
+
 - Granular access control
 - Multi-factor authentication (MFA)
 - Temporary security credentials
@@ -553,6 +593,7 @@ IAM is AWS's centralized access control service that manages who can do what wit
 ### Key Concepts
 
 **IAM Components**:
+
 ```
 IAM User: Individual person or application
   ├── Access Keys: Long-term credentials (like username/password)
@@ -572,11 +613,13 @@ IAM Group: Collection of users with same permissions
 ```
 
 **Principal of Least Privilege**:
+
 - Grant minimum permissions needed
 - Regularly audit and remove unused permissions
 - Use resource-level permissions when possible
 
 **ARN Format** (Amazon Resource Name):
+
 ```
 arn:aws:service:region:account-id:resource-type/resource-id
 arn:aws:s3:::my-bucket
@@ -587,6 +630,7 @@ arn:aws:iam::123456789012:user/john
 ### Step-by-Step Setup Guide
 
 #### Step 1: Create IAM User
+
 ```bash
 # Create user
 aws iam create-user --user-name john-dev
@@ -599,6 +643,7 @@ aws iam list-users
 ```
 
 #### Step 2: Create Access Keys
+
 ```bash
 # Create access keys for user
 aws iam create-access-key --user-name john-dev
@@ -613,6 +658,7 @@ aws iam create-access-key --user-name john-dev
 ```
 
 #### Step 3: Create IAM Groups
+
 ```bash
 # Create developer group
 aws iam create-group --group-name developers
@@ -625,6 +671,7 @@ aws iam add-user-to-group --group-name developers --user-name john-dev
 ```
 
 #### Step 4: Create Custom Policy
+
 ```bash
 # Create policy file (dev-policy.json)
 cat > dev-policy.json << 'EOF'
@@ -672,6 +719,7 @@ aws iam attach-group-policy \
 ```
 
 #### Step 5: Enable MFA
+
 ```bash
 # Create virtual MFA device
 aws iam enable-mfa-device \
@@ -684,6 +732,7 @@ aws iam enable-mfa-device \
 ```
 
 #### Step 6: Create IAM Role for Service
+
 ```bash
 # Create trust policy (trust-policy.json)
 cat > trust-policy.json << 'EOF'
@@ -848,6 +897,7 @@ aws iam get-policy-version \
 **Objective**: Set up IAM structure for dev, staging, and production
 
 **Requirements**:
+
 - Create separate IAM users for different teams
 - Create groups with appropriate permissions
 - Implement dev, staging, and prod environment access
@@ -855,6 +905,7 @@ aws iam get-policy-version \
 - Create service roles for EC2 and Lambda
 
 **Steps**:
+
 1. Create IAM users for developers, DevOps, and admins
 2. Create groups (dev-team, devops-team, admins)
 3. Create environment-specific policies
@@ -862,21 +913,23 @@ aws iam get-policy-version \
 5. Configure MFA for sensitive operations
 6. Document access matrix
 
----
-
 ## 4. Amazon VPC (Virtual Private Cloud)
 
 ### What is VPC?
+
 A VPC is a logically isolated network environment within AWS where you can launch AWS resources. It gives you complete control over your network, including IP address ranges, subnets, route tables, and gateways.
 
 ### Why Use VPC?
+
 **Real-World Example**: A healthcare company requires HIPAA compliance and network isolation. Using VPC, they create:
+
 - Private subnet for databases (no internet access)
 - Private subnet for application servers
 - Bastion host in public subnet for secure access
 - Network ACLs restricting traffic between subnets
 
 **Advantages**:
+
 - Complete network control
 - Enhanced security with private subnets
 - Multi-layer security with NACLs and Security Groups
@@ -886,6 +939,7 @@ A VPC is a logically isolated network environment within AWS where you can launc
 ### Key Concepts
 
 **VPC Components**:
+
 ```
 VPC: 10.0.0.0/16 (Virtual network)
 ├── Subnet AZ-1: 10.0.1.0/24 (Public subnet)
@@ -903,17 +957,20 @@ VPN Gateway: Connects to on-premises networks
 ```
 
 **CIDR Notation**:
+
 - `10.0.0.0/16` = Network with 65,536 addresses (10.0.0.0 to 10.0.255.255)
 - `10.0.1.0/24` = Subnet with 256 addresses (10.0.1.0 to 10.0.1.255)
 - `/8` = Class A, `/16` = Class B, `/24` = Class C
 
 **Route Table**:
+
 - Controls how packets are routed
 - Destination CIDR + Target (IGW, NAT, VPN, etc.)
 
 ### Step-by-Step Setup Guide
 
 #### Step 1: Create VPC
+
 ```bash
 # Create VPC
 aws ec2 create-vpc --cidr-block 10.0.0.0/16
@@ -929,6 +986,7 @@ aws ec2 modify-vpc-attribute \
 ```
 
 #### Step 2: Create Internet Gateway
+
 ```bash
 # Create Internet Gateway
 aws ec2 create-internet-gateway
@@ -940,6 +998,7 @@ aws ec2 attach-internet-gateway \
 ```
 
 #### Step 3: Create Subnets
+
 ```bash
 # Create public subnet AZ-1
 aws ec2 create-subnet \
@@ -967,6 +1026,7 @@ aws ec2 create-subnet \
 ```
 
 #### Step 4: Create Route Tables
+
 ```bash
 # Create route table for public subnets
 aws ec2 create-route-table --vpc-id vpc-xxxxxxxx
@@ -988,6 +1048,7 @@ aws ec2 associate-route-table \
 ```
 
 #### Step 5: Create NAT Gateway (for private subnets)
+
 ```bash
 # Allocate Elastic IP
 aws ec2 allocate-address --domain vpc
@@ -1017,6 +1078,7 @@ aws ec2 associate-route-table \
 ```
 
 #### Step 6: Create Network ACLs (Optional)
+
 ```bash
 # Create NACL
 aws ec2 create-network-acl --vpc-id vpc-xxxxxxxx
@@ -1164,6 +1226,7 @@ aws ec2 delete-vpc --vpc-id vpc-xxxxxxxx
 **Objective**: Design and implement a secure three-tier VPC architecture
 
 **Requirements**:
+
 - Public subnet: Web servers with load balancer
 - Private app subnet: Application servers
 - Private database subnet: RDS database
@@ -1171,6 +1234,7 @@ aws ec2 delete-vpc --vpc-id vpc-xxxxxxxx
 - Security groups restricting layer-to-layer communication
 
 **Steps**:
+
 1. Create VPC with CIDR block 10.0.0.0/16
 2. Create public subnets in 2 AZs
 3. Create private app subnets in 2 AZs
@@ -1183,21 +1247,23 @@ aws ec2 delete-vpc --vpc-id vpc-xxxxxxxx
 7. Launch instances in each tier
 8. Test connectivity between tiers
 
----
-
 ## 5. Amazon RDS (Relational Database Service)
 
 ### What is RDS?
+
 RDS is AWS's managed relational database service that handles database administration tasks like backups, patching, and replication. Supported engines: MySQL, PostgreSQL, MariaDB, Oracle, SQL Server.
 
 ### Why Use RDS?
+
 **Real-World Example**: Spotify uses RDS to manage their massive user database. Instead of managing servers, Spotify focuses on their application while AWS handles:
+
 - Daily automated backups
 - Multi-AZ replication for high availability
 - Automatic failover in case of failure
 - Read replicas for scaling read performance
 
 **Advantages**:
+
 - Automated backups and patches
 - Multi-AZ for high availability
 - Read replicas for scaling
@@ -1208,6 +1274,7 @@ RDS is AWS's managed relational database service that handles database administr
 ### Key Concepts
 
 **RDS Components**:
+
 ```
 RDS Instance (Primary)
 ├── Automated Backups (35 days retention)
@@ -1219,6 +1286,7 @@ RDS Instance (Primary)
 ```
 
 **Database Engines**:
+
 - MySQL: Open source, fast, reliable
 - PostgreSQL: Advanced features, ACID compliance
 - MariaDB: MySQL compatible, open source
@@ -1226,6 +1294,7 @@ RDS Instance (Primary)
 - SQL Server: Microsoft database, Windows compatible
 
 **Backup Strategy**:
+
 - Automated: Daily snapshots (configurable retention)
 - Manual: On-demand snapshots
 - Retention: 1-35 days for automated backups
@@ -1233,6 +1302,7 @@ RDS Instance (Primary)
 ### Step-by-Step Setup Guide
 
 #### Step 1: Create DB Subnet Group
+
 ```bash
 # Create subnet group (required for RDS)
 aws rds create-db-subnet-group \
@@ -1245,6 +1315,7 @@ aws rds describe-db-subnet-groups
 ```
 
 #### Step 2: Create Security Group for RDS
+
 ```bash
 # Create security group for RDS
 aws ec2 create-security-group \
@@ -1261,6 +1332,7 @@ aws ec2 authorize-security-group-ingress \
 ```
 
 #### Step 3: Create RDS Instance
+
 ```bash
 # Create RDS instance
 aws rds create-db-instance \
@@ -1282,6 +1354,7 @@ aws rds create-db-instance \
 ```
 
 #### Step 4: Configure Enhanced Monitoring
+
 ```bash
 # Create IAM role for enhanced monitoring
 aws iam create-role \
@@ -1310,6 +1383,7 @@ aws rds modify-db-instance \
 ```
 
 #### Step 5: Create Read Replica
+
 ```bash
 # Create read replica (for scaling read operations)
 aws rds create-db-instance-read-replica \
@@ -1324,6 +1398,7 @@ aws rds create-db-instance-read-replica \
 ```
 
 #### Step 6: Backup and Restore
+
 ```bash
 # Create manual snapshot
 aws rds create-db-snapshot \
@@ -1465,6 +1540,7 @@ aws rds create-option-group \
 **Objective**: Create a highly available RDS setup with read replicas
 
 **Requirements**:
+
 - Multi-AZ RDS instance for primary database
 - Read replica in same region for read scaling
 - Cross-region read replica for disaster recovery
@@ -1473,6 +1549,7 @@ aws rds create-option-group \
 - Parameter Store for database credentials
 
 **Steps**:
+
 1. Create DB subnet group in private subnets
 2. Create security group allowing traffic from app tier
 3. Launch Multi-AZ RDS MySQL instance
@@ -1485,21 +1562,23 @@ aws rds create-option-group \
    - Replication lag alarm
 8. Test failover and restore procedures
 
----
-
 ## 6. Elastic Load Balancing (ELB)
 
 ### What is ELB?
+
 ELB automatically distributes incoming application traffic across multiple targets (EC2 instances, containers, IP addresses) to ensure no single instance becomes a bottleneck. Three types: Application Load Balancer (ALB), Network Load Balancer (NLB), Classic Load Balancer (deprecated).
 
 ### Why Use ELB?
+
 **Real-World Example**: An e-commerce platform during Black Friday receives 100x normal traffic. With ELB:
+
 - Traffic is distributed across 100 EC2 instances
 - User requests are routed to healthy instances only
 - Failed instances are automatically removed from the pool
 - New instances are automatically added to handle spikes
 
 **Advantages**:
+
 - High availability and fault tolerance
 - Automatic scaling integration
 - Health checks for removing unhealthy targets
@@ -1512,20 +1591,24 @@ ELB automatically distributes incoming application traffic across multiple targe
 **Load Balancer Types**:
 
 **Application Load Balancer (ALB)**:
+
 - Layer 7 (Application) routing
 - Best for: Web apps, APIs, microservices
 - Features: Host-based routing, path-based routing, HTTP/HTTPS
 
 **Network Load Balancer (NLB)**:
+
 - Layer 4 (Transport) routing
 - Best for: Extreme performance, non-HTTP protocols
 - Features: Ultra-high performance, TCP/UDP, millions of requests/sec
 
 **Classic Load Balancer (CLB)**:
+
 - Deprecated, don't use for new applications
 - Layer 4 and 7 (both)
 
 **Health Checks**:
+
 ```
 Target Health Check Process:
 1. Load balancer sends HTTP request to target
@@ -1539,6 +1622,7 @@ Target Health Check Process:
 ### Step-by-Step Setup Guide
 
 #### Step 1: Create Target Group
+
 ```bash
 # Create target group for ALB
 aws elbv2 create-target-group \
@@ -1559,6 +1643,7 @@ aws elbv2 modify-target-group \
 ```
 
 #### Step 2: Create Application Load Balancer
+
 ```bash
 # Create load balancer
 aws elbv2 create-load-balancer \
@@ -1573,6 +1658,7 @@ aws elbv2 create-load-balancer \
 ```
 
 #### Step 3: Create Listener and Rules
+
 ```bash
 # Create listener on port 80
 aws elbv2 create-listener \
@@ -1597,6 +1683,7 @@ aws elbv2 create-rule \
 ```
 
 #### Step 4: Register Targets
+
 ```bash
 # Register EC2 instances as targets
 aws elbv2 register-targets \
@@ -1609,6 +1696,7 @@ aws elbv2 describe-target-health \
 ```
 
 #### Step 5: Configure HTTPS
+
 ```bash
 # Import certificate (or use ACM)
 aws elbv2 create-listener \
@@ -1620,6 +1708,7 @@ aws elbv2 create-listener \
 ```
 
 #### Step 6: Enable Sticky Sessions (Optional)
+
 ```bash
 # Configure sticky sessions (session persistence)
 aws elbv2 modify-target-group-attributes \
@@ -1747,6 +1836,7 @@ aws elbv2 modify-load-balancer-attributes \
 **Objective**: Create load-balanced, auto-scaled web application
 
 **Requirements**:
+
 - Application Load Balancer across 2 AZs
 - Target group with health checks
 - Auto Scaling group (2-10 instances)
@@ -1755,6 +1845,7 @@ aws elbv2 modify-load-balancer-attributes \
 - CloudWatch alarms for unhealthy targets
 
 **Steps**:
+
 1. Create target group with health checks
 2. Launch ALB in 2+ AZs
 3. Create HTTPS listener with ACM cert
@@ -1768,25 +1859,28 @@ aws elbv2 modify-load-balancer-attributes \
    - Unhealthy target count
    - Target response time
 
----
-
 ## 7. AWS Auto Scaling
 
 ### What is Auto Scaling?
+
 Auto Scaling automatically adjusts the number of EC2 instances (or other resources) based on demand. It launches new instances when demand increases and terminates instances when demand decreases, optimizing cost and availability.
 
 ### Why Use Auto Scaling?
+
 **Real-World Example**: A food delivery app experiences massive spike during lunch hours. Without Auto Scaling:
+
 - 9:00 AM: Need 10 instances
 - 12:00 PM: Need 100 instances (manual scaling too slow!)
 - 2:00 PM: Need 10 instances (wasted resources)
 
 With Auto Scaling:
+
 - Automatically scales up/down based on metrics
 - No manual intervention needed
 - Optimal cost + performance + availability
 
 **Advantages**:
+
 - Cost optimization (pay only for needed capacity)
 - High availability (maintains minimum instances)
 - Automatic replacement of unhealthy instances
@@ -1796,6 +1890,7 @@ With Auto Scaling:
 ### Key Concepts
 
 **Auto Scaling Components**:
+
 ```
 Launch Template
 ├─ AMI ID
@@ -1824,6 +1919,7 @@ Lifecycle Hooks
 ### Step-by-Step Setup Guide
 
 #### Step 1: Create Launch Template
+
 ```bash
 # Create launch template
 aws ec2 create-launch-template \
@@ -1842,6 +1938,7 @@ aws ec2 describe-launch-templates --launch-template-names my-app-template
 ```
 
 #### Step 2: Create Auto Scaling Group
+
 ```bash
 # Create Auto Scaling group
 aws autoscaling create-auto-scaling-group \
@@ -1857,6 +1954,7 @@ aws autoscaling create-auto-scaling-group \
 ```
 
 #### Step 3: Create Target Tracking Scaling Policy
+
 ```bash
 # Simple scaling: maintain CPU at 70%
 aws autoscaling put-scaling-policy \
@@ -1886,6 +1984,7 @@ aws autoscaling put-scaling-policy \
 ```
 
 #### Step 4: Create Step Scaling Policy
+
 ```bash
 # Create alarm for high CPU
 aws cloudwatch put-metric-alarm \
@@ -1919,6 +2018,7 @@ aws autoscaling attach-scaling-policies \
 ```
 
 #### Step 5: Create Scheduled Action
+
 ```bash
 # Scale up at 12:00 PM every day (lunch rush)
 aws autoscaling put-scheduled-action \
@@ -1938,6 +2038,7 @@ aws autoscaling put-scheduled-action \
 ```
 
 #### Step 6: Create Lifecycle Hook
+
 ```bash
 # Create hook for graceful shutdown
 aws autoscaling put-lifecycle-hook \
@@ -2083,6 +2184,7 @@ Launch Template:
 **Objective**: Create auto-scaling setup for traffic patterns
 
 **Requirements**:
+
 - Launch template with web server
 - Auto Scaling group (2-50 instances)
 - Target tracking (CPU at 65%)
@@ -2091,6 +2193,7 @@ Launch Template:
 - CloudWatch dashboards tracking scaling
 
 **Steps**:
+
 1. Create launch template with app installation
 2. Create Auto Scaling group (min: 2, max: 50, desired: 5)
 3. Configure target tracking policy (CPU 65%)
@@ -2104,20 +2207,22 @@ Launch Template:
 6. Monitor scaling activities via CloudWatch
 7. Test scaling with load testing
 
----
-
 ## 8. Amazon CloudWatch
 
 ### What is CloudWatch?
+
 CloudWatch is AWS's monitoring and observability service. It collects metrics from AWS resources, stores logs from applications, detects anomalies, and triggers alarms based on thresholds.
 
 ### Why Use CloudWatch?
+
 **Real-World Example**: A SaaS platform experiences degradation. Without CloudWatch:
+
 - Users complain, but you don't know why
 - Application logs are scattered
 - Performance metrics are unknown
 
 With CloudWatch:
+
 - See CPU, memory, network metrics in real-time
 - View application logs from all servers in one place
 - Set alarms to alert on issues
@@ -2125,6 +2230,7 @@ With CloudWatch:
 - Identify performance bottlenecks
 
 **Advantages**:
+
 - Unified monitoring and logging
 - Real-time metrics (detailed monitoring)
 - Automatic anomaly detection
@@ -2135,6 +2241,7 @@ With CloudWatch:
 ### Key Concepts
 
 **CloudWatch Metrics**:
+
 ```
 Metric: CPUUtilization
 ├─ Namespace: AWS/EC2
@@ -2158,6 +2265,7 @@ Alarms:
 ### Step-by-Step Setup Guide
 
 #### Step 1: Publish Custom Metrics
+
 ```bash
 # Install CloudWatch agent on EC2
 aws s3 cp s3://amazoncloudwatch-agent/amazon_linux/amd64/latest/amazon-cloudwatch-agent.rpm . && rpm -U ./amazon-cloudwatch-agent.rpm
@@ -2210,6 +2318,7 @@ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-c
 ```
 
 #### Step 2: Publish Custom Metrics via CLI
+
 ```bash
 # Publish custom metric
 aws cloudwatch put-metric-data \
@@ -2229,6 +2338,7 @@ aws cloudwatch put-metric-data \
 ```
 
 #### Step 3: Create CloudWatch Log Group
+
 ```bash
 # Create log group
 aws logs create-log-group --log-group-name /aws/lambda/my-function
@@ -2251,6 +2361,7 @@ aws logs put-retention-policy \
 ```
 
 #### Step 4: Create CloudWatch Alarm
+
 ```bash
 # Create alarm: High CPU
 aws cloudwatch put-metric-alarm \
@@ -2282,6 +2393,7 @@ aws cloudwatch put-metric-alarm \
 ```
 
 #### Step 5: Create CloudWatch Dashboard
+
 ```bash
 # Create dashboard
 aws cloudwatch put-dashboard \
@@ -2316,6 +2428,7 @@ aws cloudwatch put-dashboard \
 ```
 
 #### Step 6: Create Log Insights Queries
+
 ```bash
 # Query: Find errors in logs
 aws logs start-query \
@@ -2465,6 +2578,7 @@ aws logs describe-log-groups --log-group-name-prefix /aws/lambda
 **Objective**: Implement comprehensive monitoring for multi-tier app
 
 **Requirements**:
+
 - CloudWatch agent on EC2 for OS metrics
 - Custom metrics from application
 - Log collection from all tiers
@@ -2473,6 +2587,7 @@ aws logs describe-log-groups --log-group-name-prefix /aws/lambda
 - Log Insights queries for troubleshooting
 
 **Steps**:
+
 1. Install CloudWatch agent on all EC2 instances
 2. Configure agent to collect:
    - CPU utilization
@@ -2498,26 +2613,29 @@ aws logs describe-log-groups --log-group-name-prefix /aws/lambda
    - Performance analysis
    - User behavior analysis
 
----
-
 ## 9. AWS Lambda
 
 ### What is Lambda?
+
 Lambda is AWS's serverless compute service. Instead of managing servers, you upload code and Lambda automatically scales, runs, and manages the infrastructure. You pay only for the computing time you consume.
 
 ### Why Use Lambda?
+
 **Real-World Example**: An image processing startup receives varying upload volumes:
+
 - 9:00 AM: 10 uploads/hour
 - 2:00 PM: 1,000 uploads/hour (viral content)
 - 9:00 PM: 5 uploads/hour
 
 With Lambda:
+
 - Automatically scales to handle 1,000 uploads
 - Scales back down when demand decreases
 - No servers to manage
 - Pay only for actual processing time
 
 **Advantages**:
+
 - No server management
 - Automatic scaling
 - Pay-per-use pricing
@@ -2528,6 +2646,7 @@ With Lambda:
 ### Key Concepts
 
 **Lambda Components**:
+
 ```
 Lambda Function
 ├─ Runtime: Python, Node.js, Java, Go, etc.
@@ -2555,6 +2674,7 @@ Execution Role:
 ```
 
 **Cold Start vs Warm Start**:
+
 - Cold start: First invocation or after idle period (~1-2 seconds)
 - Warm start: Subsequent invocations (~milliseconds)
 - Provisioned concurrency: Pre-warmed functions (cost more)
@@ -2562,6 +2682,7 @@ Execution Role:
 ### Step-by-Step Setup Guide
 
 #### Step 1: Create IAM Role for Lambda
+
 ```bash
 # Create role
 aws iam create-role \
@@ -2602,6 +2723,7 @@ aws iam put-role-policy \
 ```
 
 #### Step 2: Create Lambda Function (Python)
+
 ```bash
 # Create deployment package
 mkdir lambda-function
@@ -2625,27 +2747,27 @@ def lambda_handler(event, context):
         # Parse S3 event
         bucket = event['Records'][0]['s3']['bucket']['name']
         key = event['Records'][0]['s3']['object']['key']
-        
+
         # Download image
         response = s3_client.get_object(Bucket=bucket, Key=key)
         image_data = response['Body'].read()
-        
+
         # Process image (resize)
         image = Image.open(io.BytesIO(image_data))
         image.thumbnail((200, 200))
-        
+
         # Save processed image
         buffer = io.BytesIO()
         image.save(buffer, format='JPEG')
         buffer.seek(0)
-        
+
         output_key = f"processed/{key}"
         s3_client.put_object(
             Bucket=bucket,
             Key=output_key,
             Body=buffer.getvalue()
         )
-        
+
         return {
             'statusCode': 200,
             'body': json.dumps(f'Processed image: {output_key}')
@@ -2666,6 +2788,7 @@ zip -r lambda-function.zip .
 ```
 
 #### Step 3: Deploy Lambda Function
+
 ```bash
 # Create function
 aws lambda create-function \
@@ -2680,6 +2803,7 @@ aws lambda create-function \
 ```
 
 #### Step 4: Create S3 Trigger
+
 ```bash
 # Grant S3 permission to invoke Lambda
 aws lambda add-permission \
@@ -2702,6 +2826,7 @@ aws s3api put-bucket-notification-configuration \
 ```
 
 #### Step 5: Create API Gateway Trigger
+
 ```bash
 # Create REST API
 aws apigateway create-rest-api \
@@ -2739,6 +2864,7 @@ aws apigateway put-integration \
 ```
 
 #### Step 6: Configure Lambda Layers (Shared Code)
+
 ```bash
 # Create layer
 mkdir python
@@ -2873,6 +2999,7 @@ aws logs tail /aws/lambda/image-processor --follow
 **Objective**: Build serverless image processing service
 
 **Requirements**:
+
 - Lambda function for image resize
 - S3 trigger on image upload
 - Write processed images back to S3
@@ -2881,6 +3008,7 @@ aws logs tail /aws/lambda/image-processor --follow
 - Error handling with DLQ
 
 **Steps**:
+
 1. Create Lambda execution role with S3 permissions
 2. Create Lambda function:
    - Accept image from S3 event
@@ -2898,15 +3026,16 @@ aws logs tail /aws/lambda/image-processor --follow
    - Call API endpoint
    - Verify processed images
 
----
-
 ## 10. Amazon ECS (Elastic Container Service)
 
 ### What is ECS?
+
 ECS is AWS's container orchestration service for running Docker containers at scale. It manages container deployment, scheduling, and lifecycle without needing to manage Kubernetes.
 
 ### Why Use ECS?
+
 **Real-World Example**: A microservices platform needs to run 50 microservices across 20 servers. With ECS:
+
 - Define container image and resources needed
 - ECS automatically:
   - Places containers on best servers
@@ -2915,6 +3044,7 @@ ECS is AWS's container orchestration service for running Docker containers at sc
   - Manages networking and load balancing
 
 **Advantages**:
+
 - No Kubernetes complexity
 - Deep AWS integration
 - Multiple launch options (EC2, Fargate, on-premises)
@@ -2925,6 +3055,7 @@ ECS is AWS's container orchestration service for running Docker containers at sc
 ### Key Concepts
 
 **ECS Components**:
+
 ```
 Task Definition (like Docker Compose)
 ├─ Container image: myrepo/myapp:latest
@@ -2952,6 +3083,7 @@ ECS Task
 ```
 
 **Launch Types**:
+
 - EC2: You manage EC2 instances, more control
 - Fargate: Serverless, no instance management
 - EXTERNAL: On-premises servers
@@ -2959,6 +3091,7 @@ ECS Task
 ### Step-by-Step Setup Guide
 
 #### Step 1: Create ECS Cluster
+
 ```bash
 # Create cluster
 aws ecs create-cluster \
@@ -2968,6 +3101,7 @@ aws ecs create-cluster \
 ```
 
 #### Step 2: Create Task Definition
+
 ```bash
 # Create task definition file
 cat > task-definition.json << 'EOF'
@@ -3018,6 +3152,7 @@ aws ecs register-task-definition --cli-input-json file://task-definition.json
 ```
 
 #### Step 3: Create IAM Roles
+
 ```bash
 # Create task execution role (allows pulling images, logs)
 aws iam create-role \
@@ -3062,6 +3197,7 @@ aws iam put-role-policy \
 ```
 
 #### Step 4: Create CloudWatch Log Group
+
 ```bash
 # Create log group
 aws logs create-log-group --log-group-name /ecs/my-app
@@ -3073,6 +3209,7 @@ aws logs put-retention-policy \
 ```
 
 #### Step 5: Create ECS Service
+
 ```bash
 # Create service
 aws ecs create-service \
@@ -3094,6 +3231,7 @@ aws ecs create-service \
 ```
 
 #### Step 6: Configure Auto Scaling
+
 ```bash
 # Create Auto Scaling target
 aws application-autoscaling register-scalable-target \
@@ -3244,6 +3382,7 @@ aws logs tail /ecs/my-app --follow
 **Objective**: Deploy multiple microservices using ECS
 
 **Requirements**:
+
 - Frontend service (Node.js)
 - API service (Python)
 - Database service (RDS)
@@ -3253,6 +3392,7 @@ aws logs tail /ecs/my-app --follow
 - Auto Scaling based on CPU
 
 **Steps**:
+
 1. Create ECS cluster (Fargate)
 2. Create ECR repositories for each service
 3. Build and push Docker images
@@ -3265,21 +3405,23 @@ aws logs tail /ecs/my-app --follow
 8. Set up Auto Scaling for each service
 9. Create CloudWatch dashboards for monitoring
 
----
-
 ## 11. Amazon EKS (Elastic Kubernetes Service)
 
 ### What is EKS?
+
 EKS is AWS's managed Kubernetes service. It handles Kubernetes control plane management while you manage worker nodes. Use EKS when you need Kubernetes's advanced features and multi-cloud portability.
 
 ### Why Use EKS vs ECS?
+
 **ECS Advantages**:
+
 - AWS-native, simpler learning curve
 - Easier to start with small deployments
 - Better AWS integration
 - Lower operational overhead
 
 **EKS Advantages**:
+
 - Kubernetes standard (portable)
 - Larger ecosystem and community
 - Advanced features (Network Policies, RBAC, CRDs)
@@ -3289,6 +3431,7 @@ EKS is AWS's managed Kubernetes service. It handles Kubernetes control plane man
 ### Key Concepts
 
 **EKS Architecture**:
+
 ```
 EKS Control Plane (AWS Managed)
 ├─ API Server
@@ -3311,6 +3454,7 @@ Add-ons:
 ```
 
 **Kubernetes Resources**:
+
 - Pod: Smallest deployable unit (one or more containers)
 - Deployment: Manages pods (scaling, rolling updates)
 - Service: Exposes pods internally/externally
@@ -3321,6 +3465,7 @@ Add-ons:
 ### Step-by-Step Setup Guide
 
 #### Step 1: Create EKS Cluster
+
 ```bash
 # Create IAM role for EKS cluster
 aws iam create-role \
@@ -3358,6 +3503,7 @@ aws eks describe-cluster --name my-app-cluster --query 'cluster.status'
 ```
 
 #### Step 2: Create Node Group
+
 ```bash
 # Create IAM role for nodes
 aws iam create-role \
@@ -3395,6 +3541,7 @@ aws eks create-nodegroup \
 ```
 
 #### Step 3: Configure kubectl
+
 ```bash
 # Update kubeconfig
 aws eks update-kubeconfig --name my-app-cluster
@@ -3408,6 +3555,7 @@ kubectl get nodes
 ```
 
 #### Step 4: Deploy Application
+
 ```bash
 # Create namespace
 kubectl create namespace my-app
@@ -3482,6 +3630,7 @@ kubectl get service -n my-app
 ```
 
 #### Step 5: Configure Auto Scaling
+
 ```bash
 # Create cluster autoscaler deployment
 # Install Helm first if not already installed
@@ -3530,6 +3679,7 @@ kubectl apply -f hpa.yaml
 ```
 
 #### Step 6: Install Monitoring
+
 ```bash
 # Install Prometheus and Grafana using Helm
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
@@ -3675,6 +3825,7 @@ kubectl rollout undo deployment/my-app -n my-app
 **Objective**: Deploy complete application stack on EKS
 
 **Requirements**:
+
 - Frontend (React) deployment
 - Backend API (Node.js) deployment
 - PostgreSQL database (StatefulSet)
@@ -3686,6 +3837,7 @@ kubectl rollout undo deployment/my-app -n my-app
 - Monitoring with Prometheus/Grafana
 
 **Steps**:
+
 1. Create EKS cluster and node group
 2. Create namespaces (frontend, backend, data)
 3. Deploy PostgreSQL StatefulSet with persistent storage
@@ -3699,21 +3851,23 @@ kubectl rollout undo deployment/my-app -n my-app
 11. Install Prometheus/Grafana monitoring
 12. Create network policies for security
 
----
-
 ## 12. AWS CodePipeline
 
 ### What is CodePipeline?
+
 CodePipeline is AWS's CI/CD orchestration service. It automates the process of building, testing, and deploying code from repository to production.
 
 ### Why Use CodePipeline?
+
 **Real-World Example**: A development team has:
+
 - 10 developers pushing code
 - Manual testing before deployment
 - Manual production deployments
 - Frequent human errors
 
 With CodePipeline:
+
 - Automatic build on code push
 - Automatic tests before deployment
 - Automatic production deployment
@@ -3721,6 +3875,7 @@ With CodePipeline:
 - Full audit trail of deployments
 
 **Advantages**:
+
 - Fully managed CI/CD service
 - No infrastructure to manage
 - Deep AWS integration
@@ -3731,6 +3886,7 @@ With CodePipeline:
 ### Key Concepts
 
 **Pipeline Stages**:
+
 ```
 1. Source (GitHub, CodeCommit)
    └─ Triggered on code push
@@ -3751,6 +3907,7 @@ With CodePipeline:
 ```
 
 **Artifacts**:
+
 - Output from one stage → input to next stage
 - Stored in S3
 - Example: Built Docker image, compiled application
@@ -3758,6 +3915,7 @@ With CodePipeline:
 ### Step-by-Step Setup Guide
 
 #### Step 1: Create CodePipeline IAM Role
+
 ```bash
 # Create role
 aws iam create-role \
@@ -3829,6 +3987,7 @@ aws iam put-role-policy \
 ```
 
 #### Step 2: Create S3 Bucket for Artifacts
+
 ```bash
 # Create artifacts bucket
 aws s3 mb s3://codepipeline-artifacts-12345 --region us-east-1
@@ -3840,6 +3999,7 @@ aws s3api put-bucket-versioning \
 ```
 
 #### Step 3: Create CodeCommit Repository
+
 ```bash
 # Create repository
 aws codecommit create-repository \
@@ -3861,6 +4021,7 @@ cd my-app
 ```
 
 #### Step 4: Create CodeBuild Project
+
 ```bash
 # Create service role for CodeBuild
 aws iam create-role \
@@ -3902,6 +4063,7 @@ aws codebuild create-project \
 ```
 
 #### Step 5: Create buildspec.yml
+
 ```bash
 # Create buildspec file in repository
 cat > buildspec.yml << 'EOF'
@@ -3915,14 +4077,14 @@ phases:
       - REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/my-app
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
-  
+
   build:
     commands:
       - echo "Build started on `date`"
       - echo "Building the Docker image..."
       - docker build -t $REPOSITORY_URI:latest .
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
-  
+
   post_build:
     commands:
       - echo "Build completed on `date`"
@@ -3947,6 +4109,7 @@ git push
 ```
 
 #### Step 6: Create CodePipeline
+
 ```bash
 # Create pipeline definition
 cat > pipeline.json << 'EOF'
@@ -4075,6 +4238,7 @@ aws codepipeline create-pipeline --cli-input-json file://pipeline.json
 ```
 
 #### Step 7: Enable Automatic Triggering
+
 ```bash
 # Create EventBridge rule for CodeCommit push
 aws events put-rule \
@@ -4214,6 +4378,7 @@ aws codepipeline delete-pipeline --name my-app-pipeline
 **Objective**: Build and deploy a web application through complete pipeline
 
 **Requirements**:
+
 - CodeCommit repository
 - CodeBuild project for building Docker image
 - Three deployment stages (Dev, Staging, Prod)
@@ -4223,6 +4388,7 @@ aws codepipeline delete-pipeline --name my-app-pipeline
 - Pipeline notifications via SNS
 
 **Steps**:
+
 1. Create CodeCommit repository
 2. Add application code with tests
 3. Create buildspec.yml with:
@@ -4242,8 +4408,6 @@ aws codepipeline delete-pipeline --name my-app-pipeline
 8. Configure automatic triggering
 9. Test pipeline with code push
 10. Verify deployments in each environment
-
----
 
 ## Best Practices
 
@@ -4313,8 +4477,6 @@ aws codepipeline delete-pipeline --name my-app-pipeline
    - Consolidate services in same region
    - Monitor data transfer charges
 
----
-
 ## DevOps Career Tips
 
 ### Skills to Develop
@@ -4331,12 +4493,14 @@ aws codepipeline delete-pipeline --name my-app-pipeline
 ### Career Path
 
 **Junior DevOps Engineer** (0-2 years):
+
 - Deploy and maintain applications
 - Troubleshoot infrastructure issues
 - Document processes and runbooks
 - Learn AWS services and best practices
 
 **Mid-Level DevOps Engineer** (2-5 years):
+
 - Design scalable architectures
 - Implement CI/CD pipelines
 - Optimize costs and performance
@@ -4344,6 +4508,7 @@ aws codepipeline delete-pipeline --name my-app-pipeline
 - Mentor junior team members
 
 **Senior DevOps Engineer** (5+ years):
+
 - Design enterprise architectures
 - Lead infrastructure transformations
 - Implement advanced automation
@@ -4367,8 +4532,6 @@ aws codepipeline delete-pipeline --name my-app-pipeline
 - **AWS SysOps Administrator**: Operations focused
 - **AWS Solutions Architect Professional**: Advanced
 - **AWS DevOps Engineer Professional**: Specialized
-
----
 
 ## Final Deployment Mini-Project
 
@@ -4430,6 +4593,7 @@ Monitoring & Logging:
 #### Phase 1: Infrastructure Setup (Week 1)
 
 1. **VPC and Networking**
+
    ```bash
    # Create VPC with 6 subnets across 3 AZs
    # Configure Internet Gateway and NAT Gateway
@@ -4437,6 +4601,7 @@ Monitoring & Logging:
    ```
 
 2. **IAM Roles and Permissions**
+
    ```bash
    # Create roles for:
    # - ECS task execution
@@ -4447,6 +4612,7 @@ Monitoring & Logging:
    ```
 
 3. **RDS Database**
+
    ```bash
    # Create Aurora PostgreSQL cluster
    # Multi-AZ for high availability
@@ -4455,6 +4621,7 @@ Monitoring & Logging:
    ```
 
 4. **ElastiCache**
+
    ```bash
    # Create Redis cluster
    # Multi-node for high availability
@@ -4473,6 +4640,7 @@ Monitoring & Logging:
 #### Phase 2: Application Containerization (Week 2)
 
 1. **Frontend Application**
+
    ```dockerfile
    # Dockerfile for React frontend
    FROM node:18-alpine
@@ -4481,13 +4649,14 @@ Monitoring & Logging:
    RUN npm install
    COPY . .
    RUN npm run build
-   
+
    FROM nginx:alpine
    COPY --from=0 /app/build /usr/share/nginx/html
    EXPOSE 80
    ```
 
 2. **Backend API**
+
    ```dockerfile
    # Dockerfile for Node.js API
    FROM node:18-alpine
@@ -4508,11 +4677,13 @@ Monitoring & Logging:
 #### Phase 3: ECS Deployment (Week 3)
 
 1. **ECS Cluster**
+
    ```bash
    # Create cluster with Fargate launch type
    ```
 
 2. **Task Definitions**
+
    ```bash
    # Frontend: 256 CPU, 512 MB memory
    # Backend: 512 CPU, 1024 MB memory
@@ -4530,6 +4701,7 @@ Monitoring & Logging:
 #### Phase 4: Load Balancing & Scaling (Week 4)
 
 1. **Application Load Balancer**
+
    ```bash
    # Create ALB across 2+ AZs
    # Configure listeners:
@@ -4541,6 +4713,7 @@ Monitoring & Logging:
    ```
 
 2. **Auto Scaling**
+
    ```bash
    # Frontend: Scale based on request count
    # Backend: Scale based on CPU utilization
@@ -4559,12 +4732,14 @@ Monitoring & Logging:
 #### Phase 5: CI/CD Pipeline (Week 5)
 
 1. **CodeCommit Repository**
+
    ```bash
    # Create repo with main, develop branches
    # Protect main branch with pull requests
    ```
 
 2. **CodeBuild**
+
    ```bash
    # Build project with buildspec.yml:
    #   - Run unit tests
@@ -4586,12 +4761,13 @@ Monitoring & Logging:
 #### Phase 6: Monitoring & Logging (Week 6)
 
 1. **CloudWatch**
+
    ```bash
    # Create log groups for:
    #   - Frontend (/ecs/frontend)
    #   - Backend API (/ecs/backend)
    #   - RDS (enhanced monitoring)
-   
+
    # Create alarms for:
    #   - High CPU utilization
    #   - High memory usage
@@ -4601,6 +4777,7 @@ Monitoring & Logging:
    ```
 
 2. **X-Ray**
+
    ```bash
    # Enable X-Ray tracing
    # Trace requests end-to-end
@@ -4621,6 +4798,7 @@ Monitoring & Logging:
 #### Phase 7: Security Hardening (Week 7)
 
 1. **Network Security**
+
    ```bash
    # Configure security groups:
    #   - ALB: Allow 80, 443 from 0.0.0.0/0
@@ -4630,13 +4808,14 @@ Monitoring & Logging:
    ```
 
 2. **Data Encryption**
+
    ```bash
    # Enable encryption at rest:
    #   - RDS: KMS encryption
    #   - S3: SSE-S3 or SSE-KMS
    #   - ElastiCache: At-rest encryption
    #   - EBS: Default encryption
-   
+
    # Encryption in transit:
    #   - ALB: HTTPS/TLS
    #   - RDS: SSL connections
@@ -4655,6 +4834,7 @@ Monitoring & Logging:
 #### Phase 8: Performance Optimization (Week 8)
 
 1. **Database Optimization**
+
    ```bash
    # Create read replicas for:
    #   - Product catalog queries
@@ -4663,6 +4843,7 @@ Monitoring & Logging:
    ```
 
 2. **Caching Strategy**
+
    ```bash
    # Cache with ElastiCache:
    #   - Product catalog
@@ -4737,8 +4918,6 @@ Recommendations for cost optimization:
 - Right-size instance types
 ```
 
----
-
 ## Conclusion
 
 This comprehensive guide has covered 12 essential AWS services, from foundational compute (EC2) to advanced orchestration (EKS) and automation (CodePipeline). Key takeaways:
@@ -4752,8 +4931,6 @@ This comprehensive guide has covered 12 essential AWS services, from foundationa
 7. **Document & Train**: Ensure team knowledge transfer and process documentation
 
 The final mini-project demonstrates how these services work together in a real-world scenario. Continue learning, practicing, and staying updated with new AWS features to advance your DevOps career.
-
----
 
 ## Additional Resources
 

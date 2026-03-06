@@ -6,3 +6,28 @@ Building own docker images
 - docker run my-image                      # run image
 - docker run -p 80:80 my-image             # run image and map port 80 to host port 80
 - docker rmi my-image                      # remove image
+
+
+# Postgress
+
+1. PostgreSQL Container running using docker
+    docker run -d --name postgres -e POSTGRES_PASSWORD=Postgress@12345 -p 5432:5432 postgres
+
+    docker run → Creates and starts a new container.
+    -d → Runs the container in detached mode (in the background).
+    --name postgres → Assigns the name postgres to the container.
+    -e POSTGRES_PASSWORD=Postgress@12345 → Sets the password for the default PostgreSQL user postgres.
+    -p 5432:5432 → Maps port 5432 of the container to port 5432 on your local machine, allowing you to connect to PostgreSQL from your host.
+    postgres → Uses the official PostgreSQL image from Docker Hub.
+
+2. Access the Container Shell
+    docker exec -it 15a00d062864 ash
+
+    This command opens an interactive terminal inside a running Docker container.
+    docker exec → Executes a command inside an already running container.
+    -it → Runs the command in interactive mode with a terminal.
+    15a00d062864 → This is the container ID of the running PostgreSQL container.
+    ash → Opens the Ash shell inside the container.
+
+3. psql -U postgres
+    This command allows you to connect to the PostgreSQL database inside the container.
