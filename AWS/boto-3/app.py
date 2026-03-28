@@ -47,5 +47,8 @@ secret_key = os.getenv('AWS_SECRET_ACCESS_KEY')
 
 
 # aws public url access
-df = pd.read_csv("https://dev-ism-bucket-1.s3.ap-south-1.amazonaws.com/linux/cmd.txt")
-print(df.head())
+# df = pd.read_csv("https://dev-ism-bucket-1.s3.ap-south-1.amazonaws.com/linux/cmd.txt")
+# print(df.head())
+
+print("hello world")
+print(access_key,secret_key)
