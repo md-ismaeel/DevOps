@@ -1,10 +1,18 @@
 sudo apt update
 sudo apt install asciiquarium cmatrix sl neofetch cowsay -y
+sudo apt install cmatrix sl cowsay fastfetch fortune lolcat btop htop -y
 
 
 # To run any of the installed programs, just type their name in the terminal:
-asciiquarium
 cmatrix
 sl
-neofetch
-cowsay "Welcome to DevOps, Ismail!"
+
+cowsay Hello, DevOps!
+cowsay AWS + DevOps
+cowsay -f dragon Deploy Complete!
+cowsay -f tux Linux Rules!
+
+fortune | cowsay | lolcat
+fastfetch
+btop
+htop
