@@ -117,7 +117,7 @@ ssh -i ~/.ssh/dev.pem ubuntu@ec2-43-204-228-238.ap-south-1.compute.amazonaws.com
 #### Connect Using Public IPv4 Address
 
 ```bash
-ssh -i ~/.ssh/dev.pem ubuntu@43.204.228.238
+ssh -i ~/.ssh/is-dev.pem ubuntu@3.7.253.234
 ```
 
 ### File Transfer
@@ -125,9 +125,12 @@ ssh -i ~/.ssh/dev.pem ubuntu@43.204.228.238
 #### Upload Local File to EC2 (SCP - Secure Copy)
 
 ```bash
-scp -i ~/.ssh/dev.pem -r /e/devops/Docker/project/backend ubuntu@43.204.228.238:~/backend
+scp -i ~/.ssh/is-dev.pem -r /mnt/e/ec2/backend ubuntu@3.7.253.234:~/backend
 ```
+#### Another way to Upload from git
+```bash
 
+```
 ## Nginx Reverse Proxy Setup
 
 ### What is a Reverse Proxy?

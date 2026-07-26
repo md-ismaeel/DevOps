@@ -39,5 +39,6 @@ Thumbs.db
 # =====================
 # Project-specific
 # =====================
-Auto_job_applier_linkedIn/
 AWS/boto-3/venv/
+
+awscliv2.zip

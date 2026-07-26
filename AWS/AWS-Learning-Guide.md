@@ -1,14 +1,19 @@
 # Comprehensive AWS Learning Guide: Beginner to Advanced
 
+> 📘 **Companion guide:** For Python (boto3) SDK usage — scripting S3, EC2, DynamoDB, IAM, Lambda, and CloudWatch operations in code — see the separate **[AWS-SDK-Boto3-Guide.md](./AWS-SDK-Boto3-Guide.md)**. This README focuses on AWS concepts, the Console, and the AWS CLI.
+
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2. [Learning Roadmap Timeline](#learning-roadmap-timeline)
-3. [AWS Services Overview](#aws-services-overview)
-4. [Service Guides](#service-guides)
-5. [Best Practices](#best-practices)
-6. [DevOps Career Tips](#devops-career-tips)
-7. [Final Deployment Project](#final-deployment-project)
+2. [Getting Started: Account Setup & AWS CLI](#getting-started-account-setup--aws-cli)
+3. [Learning Roadmap Timeline](#learning-roadmap-timeline)
+4. [AWS Services Overview](#aws-services-overview)
+5. [Service Guides](#service-guides)
+6. [Best Practices](#best-practices)
+7. [Cost Control & Free Tier Safety](#cost-control--free-tier-safety)
+8. [DevOps Career Tips](#devops-career-tips)
+9. [Final Deployment Project](#final-deployment-project)
+10. [Appendix: Nginx Reverse Proxy Setup](#appendix-nginx-reverse-proxy-setup)
 
 ## Introduction
 
@@ -20,6 +25,124 @@ Amazon Web Services (AWS) is the world's most comprehensive cloud platform, offe
 - **Career Growth**: AWS certification holders earn 15-20% more than average IT professionals
 - **Real-World Application**: Used by Netflix, Airbnb, Spotify, and millions of other companies
 - **Cost Efficiency**: Learn to build scalable infrastructure at a fraction of traditional costs
+
+## Getting Started: Account Setup & AWS CLI
+
+### Prerequisites
+
+- Ubuntu 20.04 / 22.04 / 24.04 (or WSL2 Ubuntu on Windows) — or macOS/Windows
+- A valid email address and phone number (needed for AWS account verification)
+- A debit/credit card (required by AWS even for Free Tier usage — used for identity verification)
+- Basic terminal familiarity (`cd`, `sudo`, `apt`)
+
+Update your system first:
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+### Create an AWS Account
+
+1. Go to https://aws.amazon.com and click **Create an AWS Account**.
+2. Verify your email and phone number.
+3. Enter payment details (required, but Free Tier services won't charge you if you stay within limits).
+4. Choose the **Basic Support Plan** (Free).
+5. Once logged in, go to the **IAM** console and create an **admin IAM user** instead of using the root account for daily work (best practice).
+
+> ⚠️ Never use your root account for regular tasks. Root should only be used for account-level actions (billing, closing account, etc.).
+
+### Install the AWS CLI
+
+**Option A — Official installer (recommended, always latest v2, Linux/WSL):**
+```bash
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo apt install unzip -y
+unzip awscliv2.zip
+sudo ./aws/install
+aws --version
+```
+
+**Option B — via apt (Ubuntu/WSL, may be an older version):**
+```bash
+sudo apt update
+sudo apt install awscli -y
+```
+
+**Option C — Windows (PowerShell):**
+```powershell
+msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi
+```
+
+**Option D — macOS (Homebrew):**
+```bash
+brew install awscli
+```
+
+Verify installation:
+```bash
+aws --version
+```
+
+**Optional extra tooling** for later, more advanced sections of this guide (SAM for serverless, eksctl for EKS, Terraform for IaC):
+```bash
+# AWS SAM CLI (serverless projects)
+pip install aws-sam-cli --break-system-packages
+
+# eksctl (for EKS/Kubernetes)
+curl --silent --location "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_Linux_amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin
+
+# Terraform (Infrastructure as Code)
+sudo apt install -y gnupg software-properties-common
+wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install terraform -y
+```
+
+### Configure AWS CLI Credentials
+
+1. In the IAM console, create an **Access Key** for your IAM admin user (IAM → Users → Security credentials → Create access key).
+2. Run:
+```bash
+aws configure
+```
+3. Enter when prompted:
+   - **AWS Access Key ID**
+   - **AWS Secret Access Key**
+   - **Default region** (e.g. `ap-south-1` for Mumbai)
+   - **Default output format** (`json` recommended)
+
+4. Verify it works:
+```bash
+aws sts get-caller-identity
+```
+
+> 🔒 Never commit your Access Key/Secret to GitHub or share it publicly. Rotate keys periodically and delete unused ones.
+
+### Beginner AWS CLI Commands (Quick Reference)
+
+```bash
+# List S3 buckets
+aws s3 ls
+
+# Create an S3 bucket
+aws s3 mb s3://your-unique-bucket-name
+
+# Upload a file to S3
+aws s3 cp test.txt s3://your-unique-bucket-name/
+
+# Download a file from S3
+aws s3 cp s3://your-unique-bucket-name/test.txt .
+
+# List EC2 instances
+aws ec2 describe-instances
+
+# List IAM users
+aws iam list-users
+```
+
+> For the full command reference per service (with every flag explained, expected output, and common errors), see each service's **Service Guide** below — starting with [IAM](#3-aws-iam-identity-and-access-management) and [EC2](#1-amazon-ec2-elastic-compute-cloud).
+
+---
 
 ## Learning Roadmap Timeline
 
@@ -4477,6 +4600,29 @@ aws codepipeline delete-pipeline --name my-app-pipeline
    - Consolidate services in same region
    - Monitor data transfer charges
 
+## Cost Control & Free Tier Safety
+
+- Enable **AWS Budgets** and set a $1–5 alert threshold immediately after account creation.
+- Use only **Free Tier eligible** resources while learning (e.g. `t2.micro` / `t3.micro` EC2, 5GB S3 standard storage).
+- Always **stop or terminate** EC2 instances, RDS databases, and NAT Gateways when not in use — these are the most common sources of unexpected bills.
+- Delete unused Elastic IPs — AWS charges for unattached ones.
+- Review the **Billing Dashboard** weekly while learning.
+- Check current spend from the CLI:
+  ```bash
+  aws ce get-cost-and-usage --time-period Start=2026-06-01,End=2026-07-01 --granularity MONTHLY --metrics "BlendedCost"
+  ```
+
+### Cleanup Checklist
+
+Before ending a learning session, verify:
+- [ ] All EC2 instances stopped/terminated
+- [ ] Unused S3 buckets/objects deleted
+- [ ] RDS instances stopped/deleted
+- [ ] Elastic IPs released
+- [ ] NAT Gateways deleted (they bill hourly even when idle)
+- [ ] CloudWatch alarms reviewed
+- [ ] Billing dashboard checked for surprise charges
+
 ## DevOps Career Tips
 
 ### Skills to Develop
@@ -4932,9 +5078,137 @@ This comprehensive guide has covered 12 essential AWS services, from foundationa
 
 The final mini-project demonstrates how these services work together in a real-world scenario. Continue learning, practicing, and staying updated with new AWS features to advance your DevOps career.
 
+## Appendix: Nginx Reverse Proxy Setup
+
+A common companion to hosting apps on **EC2**: putting Nginx in front of your app so it's not exposed directly on a raw port.
+
+### What is a Reverse Proxy?
+
+A reverse proxy is a server that sits in front of backend servers and forwards client requests to them. It:
+- Hides backend servers
+- Improves security
+- Enables load balancing
+- Performs SSL termination
+- Provides caching
+
+**Flow:** Client → Nginx → Backend App
+
+### Install Nginx (Ubuntu/Debian)
+
+```bash
+sudo apt update
+sudo apt install nginx -y
+sudo systemctl start nginx
+sudo systemctl enable nginx
+sudo systemctl status nginx
+```
+
+### Allow Firewall Access
+
+```bash
+sudo ufw allow 'Nginx Full'
+sudo ufw reload
+```
+
+### Create Reverse Proxy Config
+
+```bash
+sudo nano /etc/nginx/sites-available/myapp
+```
+
+Example configuration:
+
+```nginx
+server {
+    listen 80;
+    listen [::]:80;
+    server_name your_domain_or_ip;
+
+    location / {
+        proxy_pass http://localhost:5000;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+```
+
+### Enable the Config
+
+```bash
+sudo ln -s /etc/nginx/sites-available/myapp /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl reload nginx
+```
+
+### Nginx Management Commands
+
+```bash
+sudo systemctl start nginx
+sudo systemctl stop nginx
+sudo systemctl restart nginx
+sudo systemctl reload nginx
+sudo nginx -t
+```
+
+### Network Connection Monitoring
+
+```bash
+# Show all network connections
+sudo lsof -i -P -n
+
+# Show only listening ports
+sudo lsof -i -P -n | grep LISTEN
+```
+
+### Run Nginx (or your app) in the Background
+
+```bash
+sudo nohup nginx &
+
+# or, for a Python app:
+nohup python3 app.py &
+```
+
+> `nohup` lets the process keep running even after the terminal is closed.
+
+### Stop Nginx
+
+```bash
+sudo kill -9 $(sudo lsof -t -i:80)
+```
+
+### Log Files
+
+- **Access Log:** `/var/log/nginx/access.log`
+- **Error Log:** `/var/log/nginx/error.log`
+
+### EC2 SSH Quick Reference
+
+```bash
+# Fix key permissions (required before first use)
+chmod 400 "your-key.pem"
+
+# Connect using public DNS
+ssh -i ~/.ssh/your-key.pem ubuntu@ec2-xx-xxx-xxx-xxx.region.compute.amazonaws.com
+
+# Connect using public IPv4 address
+ssh -i ~/.ssh/your-key.pem ubuntu@<public-ip>
+
+# Upload a local file/folder to EC2 (SCP)
+scp -i ~/.ssh/your-key.pem -r ./backend ubuntu@<public-ip>:~/backend
+```
+
+**Summary:** A reverse proxy with Nginx lets you receive requests on port 80/443 and forward them to your application running on another port (e.g. 5000), keeping your backend hidden and secure while providing a single entry point for clients.
+
 ## Additional Resources
 
+- AWS official docs: https://docs.aws.amazon.com
 - AWS Free Tier: https://aws.amazon.com/free
+- AWS Skill Builder (free courses): https://skillbuilder.aws
+- AWS Certified Cloud Practitioner — a great starting certification
 - AWS Whitepapers: https://aws.amazon.com/whitepapers
 - AWS Workshops: https://workshops.aws
 - AWS User Groups: Local meetups and communities

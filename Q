@@ -1,2 +1,0 @@
-user.name=ismail
-user.email=mdismaeelkhan345@gmail.com
